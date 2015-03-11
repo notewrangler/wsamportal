@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_num: MyString
+  project: MyString
+  store_num: MyString
+  store_name: MyString
+  address: MyString
+  start_date: 2014-12-10
+  end_date: 2014-12-10
+  sat: false
+  sun: false
+  time: 2014-12-10 11:11:43
+  timezone: MyString
+  sched_hrs: 1
+  manpower: 1
+
+two:
+  job_num: MyString
+  project: MyString
+  store_num: MyString
+  store_name: MyString
+  address: MyString
+  start_date: 2014-12-10
+  end_date: 2014-12-10
+  sat: false
+  sun: false
+  time: 2014-12-10 11:11:43
+  timezone: MyString
+  sched_hrs: 1
+  manpower: 1

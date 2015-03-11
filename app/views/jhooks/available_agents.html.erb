@@ -1,0 +1,92 @@
+
+<div class="head-cheese">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<h3><strong>===Assign Agents===</strong></h3>
+			<h4><strong>Job# <%= @job.job_num %>: <%= @job.project %></strong></h4>
+			<h5><%= @job.start_date.strftime("%a %b %d")  %> -- <%= @job.end_date.strftime("%a %b %d, %Y") %></h5>
+			<h5><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> <%= @job.zip %></h5>
+			<h5><strong>Required Agents: </strong><%= @job.manpower %> | <strong>Available Agents: </strong><%= @job.jhooks.all_in.count %> | <strong>Assigned Agents: </strong><%= @job.jhooks.assigned.count %></h5>		
+		</div>
+	</div>
+</div><br>
+
+ <%= form_tag assign_job_jhooks_path, method: :put do %>		
+
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">	
+	  	<div id="assign_agents_button">		  
+					<%= submit_tag "Save Assignments", class: "btn btn_success" %>
+					  <strong><%= link_to "Back to Jobs List", jobs_path %></strong>   					 
+			</div><br><br>		
+			<h4><strong>Available Agents (all shifts)</strong></h4>					
+				<div class="subdivide">	
+					<% @jhooks.all_in.each do |jhook| %>	
+						<div class="agent-list-items">					
+						  <ul>			  			 				    					    	 
+					    	 <li class="check_jhook_label"><%= label_tag :jhook_ids, 'Assign  ' %></li> 
+					    	 <li class="check_jhook"><%= check_box_tag "ids[]", jhook.id %></li> 
+					    	 <li class="jhook_agent_handle"><%= jhook.agent.handle%></li> 
+					    	 <li class="jhook_agent_city"><%= jhook.agent.city %> </li>
+					    	 <li class="jhook_agent_state"><%= jhook.agent.state %></li>						    	     
+							 </ul><br><br>
+							 <div id"jhook_comment">
+							 		<b><%= "  Comment: " if jhook.comment.present? %>   </b><%= jhook.comment %>
+							 </div>
+						</div>	 
+					<% end %>
+				</div>			
+		</div>
+	</div>
+</div>
+		
+<% end %>
+
+
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">	 
+	  		<h4><strong>Available Agents (selected shifts)</strong></h4>					
+				<div class="subdivide">	
+					<% @jhooks.selected_shifts.each do |jhook| %>	
+						<div class="agent-list-items">					
+						  <ul>				    	
+					    	 <li class="jhook_agent_handle"><%= jhook.agent.handle%></li> 
+					    	 <li class="jhook_agent_city"><%= jhook.agent.city %> </li>
+					    	 <li class="jhook_agent_state"><%= jhook.agent.state %></li>						    	     
+							 </ul><br><br>
+							 <div id"jhook_comment">
+							 		<b><%= "  Comment: " if jhook.comment.present? %>   </b><%= jhook.comment %>
+							 </div>
+						</div>	 
+					<% end %>
+					<p><b><%= link_to "Go to Shift Calendar--Assign Shifts", availability_calendar_job_shifts_path(@job) %></b></p> 
+	  		</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+			<h4><strong>Assigned Agents (all shifts)</strong></h4>
+			<div class="subdivide">
+				<div class="agent-list-items">
+				  <ul>
+				    <% @jhooks.assigned.each do |jhook| %>
+				    	 <li class="jhook_assigned_handle"><b><%= "Team Lead: " if jhook.team_lead? %></b><%= jhook.agent.handle %><b><%= "  -- Comment: " if jhook.comment.present? %></b><%=  jhook.comment %></li><br><br>					    	  	        
+				    <% end %>
+				  </ul><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><br>
+	
+
+
+
+
+    
+

@@ -1,0 +1,25 @@
+.head-cheese {
+	text-align: center;
+	background-color: #DEFFEE;
+}
+
+.subdivide { float: left;	clear: left;	width: 100%; border-bottom: 2px solid #909692;}
+
+.agent_list ul {	display: block;	float: left;	clear: left;	width: 100%;	}
+
+.check_jhook_label {	display: inline-block;	list-style-type: none;	float: left;	width: 8%;	margin-right: 3px;}
+
+.check_jhook {	display: inline-block;	list-style-type: none;	float: left;	width: 4%;	margin-right: 1px;}
+
+.jhook_agent_handle {	display: inline-block;	list-style-type: none;	font-size: 1.1em;	float: left;	width: 23%;	margin-right: 1px;}
+
+.jhook_agent_city {	display: inline-block;	list-style-type: none;	font-size: 1.1em;	float: left;	width: 20%;	margin-right: 2px;}
+
+.jhook_agent_state {	display: inline-block;	list-style-type: none;	font-size: 1.1em;	float: left;	width: 8%;	margin-right: 5px;}
+
+.jhook_assigned_handle {	display: block;	list-style-type: none;	float: left;	width: 40%;	font-size: 1.1em;}
+
+
+#assign_agents_button {	float: left;}
+
+.agent-list-items {	border-bottom: 1px dashed #DEDCDC;}

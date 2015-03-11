@@ -1,0 +1,48 @@
+<div class="head-cheese">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<h3><strong>===Assign Single Agent to Job===</strong></h3>
+			<h4><strong>Job# <%= @job.job_num %>: <%= @job.project %></strong></h4>			
+			<h5><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %>, <%= @job.zip %></h5>
+			<h5><%= @job.start_date.strftime("%a %b %d %Y")  %> -- <%= @job.end_date.strftime("%a %b %d %Y")  %></h5>
+			<h5><strong>Required Agents: </strong><%= @job.manpower %> | <strong>Available Agents: </strong><%= @job.jhooks.all_in.count %> | <strong>Assigned Agents: </strong><%= @job.jhooks.assigned.count %></h5>
+		</div>
+	</div>
+</div><br>
+
+<div class="container">
+	<div class="row">
+   	<div class="col-md-6 col-md-offset-3">
+			<h5><b>Assigned Agents</b></h5>
+			<ul>
+			<% @job.jhooks.assigned.each do |ja| %>
+				<li style="color: green"><%= ja.agent.handle %>
+			<% end %>
+			</ul>	
+
+			<h5><b>Available (unassigned) Agents</b></h5>
+			<ul>
+			<% @job.jhooks.all_in.each do |ji| %>
+				<li style="color: blue"><%= ji.agent.handle %>
+			<% end %>
+			</ul>	
+		</div>				
+	</div>	  		
+</div>	
+
+  
+
+<%= form_tag manual_assignment_job_jhooks_path, method: :put do %>
+
+<div class="container">
+	<div class="row">
+   	<div class="col-md-6 col-md-offset-3">
+		    <%= label_tag :agent_id, 'Select Agent for Job Assignment' %><br>
+		    <%= select_tag 'agent_id', options_for_select(@agent_select) %><br><br><br>		
+		    <%= submit_tag "Save Assignment", class: "btn btn_success" %><br><br>
+		    <%= link_to 'Back to Job List (no selection)', jobs_path %>							    						  				
+		</div>				
+	</div>	  		
+ </div>
+
+<% end %>

@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job Number:</strong>
+  <%= @job.job_num %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @job.project %>
+</p>
+
+<p>
+  <strong>Store Number:</strong>
+  <%= @job.store_num %>
+</p>
+
+<p>
+  <strong>Store Name:</strong>
+  <%= @job.store_name %>
+</p>
+
+<p>
+  <strong>Store Address:</strong>
+  <%= @job.address %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @job.formatted_start_date %>
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= @job.formatted_end_date %>
+</p>
+<p>
+  <strong>Sat shift:</strong>
+  <%= @job.sat %>
+</p>
+<p>
+  <strong>Sun shift:</strong>
+  <%= @job.sun %>
+</p>
+
+<p>
+  <strong>Start Time:</strong>
+  <%= @job.formatted_time %>
+</p>
+<p>
+  <strong>TimeZone:</strong>
+  <%= @job.timezone %>
+</p>
+
+
+<p>
+  <strong>Scheduled Hours:</strong>
+  <%= @job.sched_hrs %>
+</p>
+
+<p>
+  <strong># Agents Required:</strong>
+  <%= @job.manpower %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

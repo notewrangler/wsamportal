@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+        <div class="banner">
+					<h4><%= "Agents with Timesheets Pending Approval" %></h4>
+				</div><br><br><br>
+				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>	
+				<p><b><%= link_to "View All Timesheets (unsorted)", timesheets_path %></b></p>
+	
+			<div>				 
+
+				<table>
+					<tr>
+						<th class="timesheet-name">Agent Name</th>
+						<th># of Time Reports Pending</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th></th>
+					</tr>
+					<% @agents.each do |agent| %>	
+					<tr>
+						<td class="timesheet-name"><%= agent.handle %></td>
+						<td><%= agent.timesheets.okayed.count %></td>
+						<td><%= agent.timesheets.okayed.first.date %></td>
+						<td><%= agent.timesheets.okayed.last.date %></td>
+						<td><%= link_to "Show Agent Timesheet", weekly_timesheet_path(agent) %></td>
+					</tr>			
+					<% end %>	
+			</table>
+		</div><br><br><br><br>
+	</div>
+</div>

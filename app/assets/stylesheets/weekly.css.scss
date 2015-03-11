@@ -1,0 +1,37 @@
+td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;    
+  }
+
+
+.weekly-day { text-align: left; float: left; width: 5%;  }            
+
+.weekly-date { text-align: left; float: left; width: 6%;  }            
+
+.weekly-s-name-num { text-align: left; float: left; width: 10%;  }            
+
+.weekly-s-city_state { text-align: left; float: left; width: 8%;  }            
+
+.weekly-timein { text-align: left; float: left; width: 5%;  }            
+
+.weekly-timeout { text-align: left; float: left; width: 5%;  }            
+
+.weekly-break { text-align: left; float: left; width: 4%;  }            
+
+.weekly-hrs { text-align: left; float: left; width: 4%;  }            
+
+.weekly-miles { text-align: left; float: left; width: 4%;  }            
+
+.weekly-drive { text-align: left; float: left; width: 4%;  }            
+
+.weekly-expenses { text-align: left; float: left; width: 5%;  }            
+    
+.weekly-contact { text-align: left; float: left; width: 10%;  }            

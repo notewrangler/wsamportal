@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @shift.job.job_num %> <%= @shift.job.project %>, <%= @shift.job.store_name %> #<%= @shift.job.store_num %>
+</p>
+
+<p>
+  <strong>Shift date:</strong>
+  <%= @shift.shift_date %>
+</p>
+
+<p>
+  <strong>#Agents Required:</strong>
+  <%= @shift.job.manpower %>
+</p>
+
+<p>
+  <strong>#Agents Assigned:</strong>
+  <%= @shift.shooks.opted.count %>
+</p>
+
+<h5>Assigned Agents</h5>
+
+  <% if @shift.shooks.assigned.present? %>
+
+      <ul>
+      <% @shift.shooks.assigned.each do |shook|%>
+      <li><%= shook.agent.handle %>
+      <% end %>
+  <% else %>  
+        <p><b>No Agents are Assigned</b></p>
+  <% end %>
+
+<p>
+  <strong>#Agents Available:</strong>
+  <%= @shift.shooks.opted.count %>
+</p>
+
+<h5>Available Agents</h5>
+
+  <% if @shift.shooks.opted.present? %>
+      <ul>
+      <% @shift.shooks.opted.each do |shook|%>
+      <li><%= shook.agent.handle %>
+      <% end %>
+  <% else %>  
+      <p><b>No more Agents are Available</b></p>
+  <% end %>    
+
+
+
+<%= link_to 'Edit', edit_shift_path(@shift) %> |
+<%= link_to 'Back', shifts_path %>

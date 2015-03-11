@@ -1,0 +1,54 @@
+<span>
+<h3>Job# <%= @job.job_num %>: <%= @job.project %></h3>
+<span><h4><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> - <strong>Start Date: <%= @job.start_date.strftime("%A, %b %d, %Y") %></strong></h4></span>
+<span><h5><b>Required Agents: </b><%= @job.manpower %><b> | Agents Assigned (all shifts): </b><span style="color: green"><%= @job.jhooks.assigned.count %></span><b> | Agents Available (selected shifts): </b><%= @job.jhooks.selected_shifts.count %></h5>
+
+
+ <%= form_tag shift_level_assign_job_shifts_path, method: :put do %> 
+
+  <%= submit_tag "Submit Changes", class: "btn btn-success" %><br><br> 
+   <p><b>Shifts may overlap into following month (use arrows to view)</b></p>
+          <p><span style="color: green">Agents in Green -- Assigned to Shift | </span>
+          <span style="color: blue">Agents in Blue -- Time Report Submitted  | </span>
+          <span style="color: maroon">Agents in Maroon -- Time Report Approved  | </span>
+          <span><strong>Agents with check boxes are Available -- check to assign to shifts  </strong></p>  
+  
+      <div id="shifts">
+          <h2 id="month">
+            <%= link_to "<", date: @date.prev_month %>
+            <%= @date.strftime("%B %Y") %>
+            <%= link_to ">", date: @date.next_month %>
+          </h2>
+         
+          <%= calendar @date do |date| %>
+            <%= date.day %>
+              <% if @shifts_by_date[date] %>                              
+                  <% @shifts_by_date[date].each do |shift| %>
+                     <ul>  
+                    <% shift.shooks.assigned.each do |shook| %>                  
+                      <li style="color: green"><%= shook.agent.handle %> 
+                    <% end %>
+                    </ul>
+                    <ul>
+                      <% shift.shooks.reported.each do |shook| %>
+                      <li style="color: blue"><%= shook.agent.handle %>
+                      <% end %>
+                      </ul>
+                      <ul>
+                      <% shift.shooks.completed.each do |shook| %>
+                      <li style="color: maroon"><%= shook.agent.handle %>
+                      <% end %>
+                      </ul>  
+                    <ul>
+                    <% shift.shooks.opted.each do |shook| %>
+                      <li><%= check_box_tag 'ids[]', shook.id %> <%= shook.agent.handle %></li> 
+                    <% end %>
+                     </ul>                    
+                  <% end %>
+                </ul>                
+              <% end %> 
+          <% end %> 
+      </div>
+
+
+<% end %>

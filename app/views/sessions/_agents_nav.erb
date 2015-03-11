@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="banner">
+      <h4>WSM Field Agents </h4>
+    </div>
+
+
+    <div class="navbar ">   
+      <h3>Contractor: <%= session_handle %></h3>
+        <nav>
+          <ul class="nav nav-tabs">    
+          	<li><%= link_to "Home", sessions_path %></li>
+            <li><%= link_to "Available Jobs(" + current_agent_available_jobs + ")", jobs_path %></li>
+            <li><%= link_to "Assigned Shifts(" + current_agent.shooks.assigned.count.to_s + ")", shooks_path %></li>
+            <li><%= link_to "Reported Shifts(" + current_agent.shooks.reported.count.to_s + ")", reported_agent_index_path %></li>
+            <li><%= link_to "Completed Shifts(" + current_agent.shooks.completed.count.to_s + ")", completed_agent_index_path %></li>
+            <li><%= link_to "Agent Profile", edit_agent_path(current_user) %></li>
+            <li><%= link_to "Information and Forms", info_forms_path %></li>
+            <li><%= link_to "Team Leads", timesheet_days_path %>
+            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+          </ul><br>
+        </nav>   
+    </div>
+</div>

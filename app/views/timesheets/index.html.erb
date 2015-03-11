@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+      <div class="banner">
+        <h4>WSM Field Agent Time Reports</h4>
+      </div>
+
+      <% @shooks.each do |s| %>
+        <table>
+          <tr>
+          		<th>Job Number</th>
+              <th>Project</th>        
+              <th>StoreName</th>
+              <th>#</th>              
+              <th>City</th>
+              <th>State</th>              
+              <th>Agent</th> 
+              <th>Date</th>
+              <th>TimeIn</th> 
+              <th>TimeOut</th>
+              <th>BreakMin</th>    
+              <th>Hrs</th>
+              <th>Supervisor/Store Contact</th>         
+          </tr>      
+          <tr>
+            	<td><%= s.shift.job.job_num %></td>
+              <td><strong><%= s.shift.job.project %></strong></td>        
+              <td><%= s.shift.job.store_name %></td>
+              <td><%= s.shift.job.store_num %></td>              
+              <td><%= s.shift.job.city %></td>
+              <td><%= s.shift.job.state %></td>              
+              <td><strong><%= s.agent.handle %></strong></td> 
+              <td><strong><%= s.formatted_date %></strong></td> 
+              <td><strong><%= s.timesheet.formatted_time_in %></strong></td> 
+              <td><strong><%= s.timesheet.formatted_time_out %></strong></td>
+              <td><strong><%= s.timesheet.break_minutes %></strong></td>       
+              <td><strong><%= s.timesheet.total_hrs %></strong></td>
+              <td><%= s.timesheet.contact %></td> 
+         </tr>           
+        </table>
+             <p><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %> 
+                  <b><%= "  ||   Mileage: " if s.timesheet.miles.present? %></b><%= s.timesheet.miles %><b><%= " | Drive Time:" if s.timesheet.drive_time.present? %></b><%= s.timesheet.drive_time %><b><%= " | Expenses: " if s.timesheet.expenses.present? %></b><%= number_to_currency s.timesheet.expenses %></p>
+             <p><%= "Comments:" if s.timesheet.comments.present? %><%= s.timesheet.comments %> 
+          
+      <% end %>
+
+        <div><% if @shooks.empty? %>
+          <h6><strong>There are no reported shifts to display</strong></h6>
+              <% end %>
+        </div>
+
+    </div>
+  </div>
+</div>

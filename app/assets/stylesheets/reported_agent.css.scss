@@ -1,0 +1,95 @@
+// Place all the styles related to the reported_agent controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	font-size: 100%;
+}
+
+div.banner {
+	width: 100%;
+	display: block;
+	float: left;
+	clear: right;
+	background-color: #80BF88;
+	}
+
+div.add_new {
+	width: 100%;
+	display: block;
+	float: left;
+	clear: right;
+	padding: 10px 0 10px 0;
+}
+
+div.headings ul  {
+	display: block;
+	list-style-type: none;
+	background-color: #D9D7D7;
+	width: 100%;
+	float: left;
+	font-size: 1.1em;
+	font-weight: bold;
+}	
+div.job_data ul {
+	display: block;
+	list-style-type: none;
+	width: 100%;
+	float: left;
+	font-size: 1.0em;
+	margin-top: 6px;
+	}
+
+		.pj      { width:  10%; text-align: left;	list-style-type: none;  display: inline-block;	}
+
+		.s_name  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+
+		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}		
+
+		.s_addy  { width:  13%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+		
+		.s_city  { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+		
+		.s_state { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+		
+		.s_zip   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;  }
+
+		.w_date {	width: 6%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+
+		.w_in  { width:  6%;	text-align: left;	list-style-type: none;  display: inline-block;	}
+
+		.w_out   { width:  6%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+
+		.w_break   { width:  6%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+
+		.w_hrs  { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;  }
+
+			
+
+div.agent_links {
+	border-bottom: 1px solid #909692;
+}
+
+
+div.admin_links ul {
+	display: block;
+	text_decoration: none;
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #909692;	
+}
+
+
+#f_edit {
+	width: 4%;
+	text-align: left;
+	list-style-type: none;
+	display: inline-block;
+}
+
+#f_delete {
+	width: 5%;
+	text-align: left;
+	list-style-type: none;
+	display: inline-block;
+}
+

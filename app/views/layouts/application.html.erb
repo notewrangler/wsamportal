@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WSM Portal</title>
+  <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+	<body>		
+			<header>
+					<div id="logo_icon">
+						<%= image_tag "wsm_lighter_logo.png" %>
+					</div>
+					<h2>Wasatch Sales & Marketing</h2>
+			</header>
+					
+			<div class="container">
+					<% flash.each do |type, message| %>
+						<div class="alert <%= flash_class type %> alert-dismissable" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<%= message %>
+					</div>
+					<% end %>
+			</div>
+
+			<div id="user_nav">
+					<%= render current_user_nav %> 
+			</div>	
+
+		<div class="page-wrap">			
+
+					<%= yield %>
+
+		
+
+
+			<div class="site_footer">
+				<p>&copy; 2015 Ralph Johnson </p>
+			</div>	
+
+		</div>					
+		
+	</body>
+
+</html>
+
+

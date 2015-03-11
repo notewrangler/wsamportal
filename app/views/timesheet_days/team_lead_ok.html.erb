@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+        <div class="banner">
+          <h4>Crew Timesheets for Job # <%= @job.job_num %> -- <%= @job.project %>, <%= @job.store_name %> #<%= @job.store_num %></h4>
+        </div><br><br><br>
+        <p><b>Check Boxes to OK Agent time reports</b></p>
+  <%= form_tag ok_by_team_lead_path, method: :put do %>
+
+      <%= submit_tag 'Submit Updates', class: "btn btn-success" %><br><br>
+	      <% @crew.each do |crewmember| %>  
+	      	<% @timesheets = crewmember.timesheets.submitted %>	      		
+	      	  <% @timesheets.each do |timesheet| %>      
+
+			        <div>
+								<table>
+										<tr>
+											<th class="timesheet-name">Agent</th>
+											<th>Job #</th>
+											<th>Date</th>
+											<th>Time In</th>
+											<th>Time Out</th>
+											<th>Break Min</th>
+											<th>Miles</th>
+											<th>Drive Time</th>
+											<th>Expenses</th>
+											<th>Supervisor/Contact</th>
+											<th> </th>
+											<th>Team Lead Comment?</li>
+										</tr>	
+
+										<tr>
+											<td class="timesheet-name"><%= timesheet.agent.handle %></td>
+											<td><%= @job.job_num %></td>
+											<td><%= timesheet.formatted_date %></td>
+											<td><%= timesheet.formatted_time_in %></td>
+											<td><%= timesheet.formatted_time_out %></td>
+											<td><%= timesheet.break_minutes %></td>
+											<td><%= timesheet.miles %></td>
+											<td><%= timesheet.drive_time %></td>
+											<td><%= timesheet.expenses %></td>
+											<td><%= timesheet.contact %></td>
+											<%= fields_for "timesheets[]", timesheet do |f| %>
+											<td><%= f.label :team_lead_ok, "Team Lead OK" %></i></b> 
+										        	<%= f.check_box :team_lead_ok %></td>
+										  <td><%= f.text_area :team_lead_note %></td>
+										  <% end %> 
+										</tr>									
+								</table>
+								<p><b><%= "Comments: " if timesheet.comments.present? %></b><%= timesheet.comments %></p>
+						<% end %>		
+			  <% end %>  
+			  				<h5><b><%= "Timesheets are up to date" if @timesheets.empty? %></b></h5>
+	  </div> 
+  </div>  
+</div>  
+
+<% end %>      
+

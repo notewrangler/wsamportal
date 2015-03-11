@@ -1,0 +1,7 @@
+<div class="admin">
+      <ul>
+        <li id="f_edit">| <%= link_to 'Edit', edit_job_path(job) %></li>        
+        <li id="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li id="jhook_feed">| <%= link_to 'Assign Agents', jhooks_path(job) %>
+      </ul>  
+    </div> 

@@ -1,0 +1,161 @@
+// Place all the styles related to the agents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.banner {
+	width: 100%;
+	max-height: 60px;
+	display: block;
+	float: left;
+	clear: right;
+	background-color: #80BF88;
+	padding-left: 10px;	
+	border-radius: 5px;
+}
+
+ h2 {
+	margin-left: 40px;
+	}
+
+#new-user {
+	float: left;
+	margin: 3px 0 0 3px;
+}
+
+div.around {
+	display: block;
+	margin: 100px;
+}
+
+div.big_name {
+	width: 100%;
+	max-height: 28px;
+	display: block;
+	margin: 0 0 0 0;
+	background-color: #D9D7D7;
+	float: left;
+	clear: both;
+}
+
+div.big_name  h4 {
+	font-family: "Times New Roman", Georgia, Serif;
+	float: left;
+	clear: both;
+	font-size: 1.3em;		
+}
+
+div.headings {
+	background-color: #eee2e2;
+}
+
+div.headings ul {
+	display: block;
+	width: 100%;
+	float: left;
+	clear: right;
+	
+}
+
+
+#addy {
+	width: 20%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+
+}
+
+#town {
+	width: 12%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+}
+
+#st {
+	width: 4%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+}
+#zip {
+	width: 6%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+}
+#ph {
+	width: 12%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+}
+#em {
+	width: 20%;
+	font-size: 0.8em;
+	font_weight: 900;
+	list-style-type: none;
+	display: inline-block;
+}
+
+
+div.data ul {
+	display: block;
+	width: 100%;
+	float: left;
+	clear: both;
+	
+}
+
+#f_addy {
+	width: 20%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+
+#f_town {
+	width: 12%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+
+#f_st {
+	width: 4%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+#f_zip {
+	width: 6%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+#f_ph {
+	width: 12%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+#f_em {
+	width: 20%;
+	font_weight: bold;
+	list-style-type: none;
+	display: inline-block;
+}
+
+
+span.admin_links {
+	display: block;
+	width: 100%;
+	float: left;
+	clear: both;
+	border-bottom: 1px solid #eee;
+}

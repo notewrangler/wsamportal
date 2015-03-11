@@ -1,0 +1,15 @@
+<div class="subdivide">		
+				
+	<h4><b>These Agents are Available for All Shifts </b></h4> 
+	<h6>(Or assign another agent from dropdown, below)</h6>							
+			<% @jhooks.all_in.each do |jhook| %>
+				<div class="agent-list-items">								
+					 <ul>			  			 				    					    	 
+			    	 <li class="jhook_agent_handle"><%= jhook.agent.handle %> </li>
+			    	 <li class="jhook_agent_city"><%= jhook.agent.city %>, </li>
+			    	 <li class="jhook_agent_state"><%= jhook.agent.state %></li>
+			    	 <li class="jhook_agent_user"><b>username:  </b><%= jhook.agent.username %></li>					    	     
+					 </ul><br>
+				</div>	 																 
+			<% end %>						
+</div><br><br><br><br>

@@ -1,0 +1,30 @@
+<div class='container'>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+    	 <div class="banner">
+				<h3>Set Wage Rate for Agents</h3>
+			 </div>	
+
+				<%= form_tag set_wages_job_jhooks_path, method: :put do %>
+
+					<% @jhooks.each do |jhook| %>
+
+						<h4><%= jhook.agent.handle %></h4>
+
+							<%= fields_for "jhooks[]", jhook do |f| %>
+
+							<p><%= f.label :wage_rate, "Hourly Rate $" %><%= f.number_field :wage_rate, class: "form-control" %></p>			
+
+							<% end %>
+
+					<% end %>
+
+						<div>
+							<%= submit_tag "Update" %>
+						</div>
+
+				<% end %> 
+ 		</div>
+  </div>
+</div>				

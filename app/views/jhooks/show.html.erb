@@ -1,0 +1,64 @@
+<h2>Showing Agent Availability</h2>
+
+<p>
+  <strong>Job Number:</strong>
+  <%= @jhook.job.job_num %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @jhook.job.project %>
+</p>
+
+<p>
+  <strong>Store Number:</strong>
+  <%= @jhook.job.store_num %>
+</p>
+
+<p>
+  <strong>Store Name:</strong>
+  <%= @jhook.job.store_name %>
+</p>
+
+<p>
+  <strong>Store Address:</strong>
+  <%= @jhook.job.address %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @jhook.job.start_date.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= @jhook.job.end_date.strftime("%m/%d/%y")%>
+</p>
+<p>
+  <strong>Sat shift:</strong>
+  <%= @jhook.job.sat %>
+</p>
+<p>
+  <strong>Sun shift:</strong>
+  <%= @jhook.job.sun %>
+</p>
+
+<p>
+  <strong>Start Time:</strong>
+  <%= @jhook.job.time.strftime("%I:%M%p") %>
+</p>
+<p>
+  <strong>TimeZone:</strong>
+  <%= @jhook.job.timezone %>
+</p>
+
+
+<p>
+  <strong>Scheduled Hours:</strong>
+  <%= @jhook.job.sched_hrs %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_jhook_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ 
+ *= require bootstrap
+ *= require bootstrap-datepicker3
+ *= require_tree .
+ *= require_self
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 88%;
+  height: 100%;  
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: 40px;
+}
+
+
+ header {
+  width: 100%;
+  margin: 0 0 4px 0; 
+  border-radius: 5px;
+  padding: 2px 0 15px 0;
+  font-family: 'Old Standard TT', serif;
+  color: #15F48C;
+  font-size: 1.2em;
+  background-image: url(mtnpan010428.jpg);
+  background-size: 100%;
+ }
+
+ header #logo_icon {
+    float: right;
+    clear: left;
+  }
+
+#wrappit {
+  min-height: 100%;
+  position: relative;
+}
+
+
+ #page_title {
+ 		padding: 0 10px 0 5px;
+
+ }
+
+ .alert {
+  margin-top: 10px;
+ } 
+
+
+ 
+ #new_job_form_left {
+ 	display: block;
+ 	float: left;
+  margin-left: 20px;
+ 	width: 30%;
+
+ }
+
+ #new_job_form_middle {
+  display: block;
+  float: left;
+  width: 30%;
+ }
+ 
+
+ #new_agent_form_left {
+
+ 	display: block;
+  margin-left: 30px;
+ 	float: left;
+ 	width: 30%;
+
+ }
+
+ #new_agent_form_middle {
+  display: block;
+  float: left;
+  width: 30%;
+ }
+
+
+  #time_report_form_left {
+    margin-left: 40px;
+    display: block;
+    float: left;
+    width: 30%;
+   }
+
+   #time_report_form_middle {
+    display: block;
+    float: left;
+    width: 30%;
+   }
+
+
+  #new_job_submit {
+      display: -webkit-flex; /* Safari */
+      -webkit-align-items: center; /* Safari 7.0+ */
+      display: flex;
+      align-items: center;
+      margin: 200px 0 40px 0;
+  }	
+
+ 
+
+ footer {
+ 
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #C0C0C0;
+ }
+
+  
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.page-wrapper:after {
+  content: '';
+  display: block;
+}
+
+.site-footer, .page-wrapper:after {
+  background-color: #C0C0C0;
+  height: 40px;
+}
+
+.site-footer {
+  width: 100%;
+  background-color: #C0C0C0;
+  height: 40px;
+}

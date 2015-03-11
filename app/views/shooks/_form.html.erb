@@ -1,0 +1,22 @@
+<%= form_for(@shook) do |f| %>
+  <% if @shook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shook.errors.count, "error") %> prohibited this shook from being saved:</h2>
+
+      <ul>
+      <% @shook.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+
+  <div id="time_report_submit">    
+      <div class="actions">
+        
+      </div>   
+  </div>
+  
+<% end %>

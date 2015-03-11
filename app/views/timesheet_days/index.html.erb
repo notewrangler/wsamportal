@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+        <div class="banner">
+					<h4><%= "Active Jobs For Team Lead: " %><%= current_agent.handle %></h4>
+				</div><br><br><br>
+				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>	
+	
+			<div>
+				<table>
+						<tr>
+							<th>Job #</th>
+							<th>Project</th>
+							<th>Store</th>
+							<th>Store #</th>
+							<th>StartDate</th>
+							<th>EndDate</th>
+							<th>Agents</th>
+							<th> </th>
+						<tr>	
+
+					<% @jobs.each do |job| %>
+
+						<tr>
+							<td><%= job.job_num %></td>
+							<td><%= job.project %></td>
+							<td><%= job.store_name%></td>
+							<td><%= job.store_num %></td>
+							<td><%= job.start_date%></td>
+							<td><%= job.end_date%></td>
+							<td><%= job.jhooks.assigned.count%></td>
+							<td><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></td>
+						<tr>				
+					<% end %>
+				</table>
+
+			</div><br><br><br><br>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+

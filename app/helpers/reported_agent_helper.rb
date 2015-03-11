@@ -1,0 +1,2 @@
+module ReportedAgentHelper
+end

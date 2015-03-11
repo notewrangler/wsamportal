@@ -1,0 +1,5 @@
+<span class="admin">
+  | <%= link_to 'Edit Agent Profile', edit_agent_path(agent) %> 
+  | <%= link_to 'Edit Agent Login Credentials', edit_user_path(agent) %>
+  | <%= link_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure?' } %>             
+</span>

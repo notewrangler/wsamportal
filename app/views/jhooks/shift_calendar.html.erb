@@ -1,0 +1,31 @@
+<span>
+<h3>Job# <%= @job.job_num %>: <%= @job.project %></h3>
+<span><h4><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> - <strong>Start Date: <%= @job.start_date.strftime("%A, %b %d, %Y") %></strong></h4></span>
+
+
+ <%= form_tag shift_selections_job_jhooks_path, method: :put do %> 
+
+  <%= submit_tag "Submit Changes", class: "btn btn-success" %>   
+  
+      <div id="shifts">
+          <h2 id="month">
+            <%= link_to "<", date: @date.prev_month %>
+            <%= @date.strftime("%B %Y") %>
+            <%= link_to ">", date: @date.next_month %>
+          </h2>
+          <p><strong>Job shifts may overlap into following month (use arrows to view)</strong></p>       
+          <%= calendar @date do |date| %>
+            <%= date.day %>
+              <% if @shifts_by_date[date] %>
+                 <ul>                
+                  <% @shifts_by_date[date].each do |shift| %>                  
+                      <li><%= shift.job.project %> <%= shift.job.formatted_time %> 
+                      <%= check_box_tag 'ids[]', shift.id %></li>                    
+                  <% end %>
+                </ul>                
+              <% end %> 
+          <% end %> 
+      </div>
+
+<% end %>
+

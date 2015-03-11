@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+        <div class="banner">
+          <h4>WSM Active Shifts</h4>
+        </div><br><br><br>
+
+        <% @shifts.each do |s| %>
+
+          <div class="big_name" %>      
+               <h5><b><i>Job# <%= s.job.job_num %> | <%= s.job.project %> | <%= s.job.store_name %> # <%= s.job.store_num %></i></b></h5>
+              <h5><b><i><%= s.job.address %>, <%= s.job.city %>, <%= s.job.state %> <%= s.job.zip %></i></b></h5>
+          </div><br><br><br>
+
+        <div class="headings">
+          <ul>      
+              <li class="w_s_date">Date</li>
+              <li class="w_man">#AgtsReq</li>      
+              <li class="w_agts">#Avail.</li>              
+              <li class="w_assd">#Assigned</li> 
+              
+          <ul>
+        </div>
+            <div class="shift_data">
+              <ul>        
+                <li class="w_s_date"><%= s.shift_date.strftime("%m/%d/%y") %></li>
+                <li class="w_man"><%= s.job.manpower %></li>        
+                <li class="w_agts"><%= s.shooks.opted.count %></li>
+                <li class="w_assd"><%= s.shooks.assigned.count %></li>
+                
+            </div> 
+            <div class="admin_links"> 
+            <p> <%= link_to "Assign Single Agent to Shift", assign_single_shift_path(s) %>
+            </div>  
+
+          <% end %>
+    </div>
+  </div>
+</div>
+
+
+<br>
+

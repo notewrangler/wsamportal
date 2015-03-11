@@ -1,0 +1,48 @@
+<div class="head-cheese">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<h3><strong>===Assign Single Agent to Shift===</strong></h3>
+			<h4><strong>Job# <%= @shift.job.job_num %>: <%= @shift.job.project %></strong></h4>			
+			<h5><%= @shift.job.store_name %> Store #<%= @shift.job.store_num %> -- <%= @shift.job.address %>, <%= @shift.job.city %>, <%= @shift.job.state %>, <%= @shift.job.zip %></h5>
+			<h5><%= @shift.shift_date.strftime("%a %b %d %Y")  %></h5>
+			<h5><strong>Required Agents: </strong><%= @shift.job.manpower %> | <strong>Available Agents: </strong><%= @shift.shooks.opted.count %> | <strong>Assigned Agents: </strong><%= @shift.shooks.assigned.count %></h5>
+		</div>
+	</div>
+</div><br>
+
+<div class="container">
+	<div class="row">
+   	<div class="col-md-6 col-md-offset-3">
+			<h5><b>Assigned Agents</b></h5>
+			<ul>
+			<% @shift.shooks.assigned.each do |sa| %>
+				<li style="color: green"><%= sa.agent.handle %>
+			<% end %>
+			</ul>	
+
+			<h5><b>Available (unassigned) Agents</b></h5>
+			<ul>
+			<% @shift.shooks.opted.each do |so| %>
+				<li style="color: blue"><%= so.agent.handle %>
+			<% end %>
+			</ul>	
+		</div>				
+	</div>	  		
+</div>	
+
+  
+
+<%= form_tag single_shift_assign_path, method: :put do %>
+
+<div class="container">
+	<div class="row">
+   	<div class="col-md-6 col-md-offset-3">
+		    <%= label_tag :agent_id, 'Select Agent for Shift Assignment' %><br>
+		    <%= select_tag 'agent_id', options_for_select(@agent_select) %><br><br><br>		
+		    <%= submit_tag "Save Assignment", class: "btn btn_success" %><br><br>
+		    <%= link_to 'Back to Shift List (no selection)', shifts_path %>							    						  				
+		</div>				
+	</div>	  		
+ </div>
+
+<% end %>

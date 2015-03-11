@@ -1,0 +1,28 @@
+<div class="head-cheese">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<h3><strong>===Assign Team Lead===</strong></h3>
+			<h4><strong>Job# <%= @job.job_num %>: <%= @job.project %></strong></h4>
+			<h5><%= @job.start_date.strftime("%a %b %d")  %> -- <%= @job.end_date.strftime("%a %b %d, %Y") %></h5>
+			<h5><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> <%= @job.zip %></h5>
+			<h5><strong>Required Agents: </strong><%= @job.manpower %> | <strong>Available Agents: </strong><%= @job.jhooks.all_in.count %> | <strong>Assigned Agents: </strong><%= @job.jhooks.assigned.count %></h5>
+		</div>
+	</div>
+</div><br>
+
+<%= form_tag team_lead_assignment_job_jhooks_path, method: :put do %>
+
+<h5><strong><%= link_to "Back to Jobs List", jobs_path %></strong></h5>	
+		
+	<%= render 'team_lead_assign_avail_agents_list' if !@job.team_lead.present? %>
+	<h6 style="color: red"><%= "No Agents have indicated Availabilty yet" if @jhooks.all_in.empty? %></h6>
+
+	<div class="subdivide">			
+		
+		<h4><b><%= "Team Lead Assigned: " if @job.team_lead.present? %></b> <%= @job.team_lead.handle if @job.team_lead.present? %></h4><br> 
+
+		<%= render 'team_lead_assign_button' if !@job.team_lead.present? %>
+
+	</div><br><br>
+  	
+<% end %>

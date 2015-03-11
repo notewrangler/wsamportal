@@ -1,0 +1,140 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %><%= f.submit "Save Job", class: "btn btn-success" %><br><br>    
+      
+  
+  <div id="new_job_form_left">
+
+      <div class="field">
+        <%= f.label :project, "Project" %><br>
+        <%= f.text_field :project, class: 'form-control' %>
+      </div><br>
+      <div class="field">
+        <%= f.label :store_num, "Store Number" %><br>
+        <%= f.text_field :store_num, class: 'form-control' %>
+      </div><br>
+      <div class="field">
+        <%= f.label :store_name, "Store Name" %><br>
+        <%= f.text_field :store_name, class: 'form-control' %>
+      </div><br>
+      <div class="field">
+        <%= f.label :address, "Street Address" %><br>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div><br>
+      <div class="field">
+        <%= f.label :city, "City" %><br>
+        <%= f.text_field :city, class: 'form-control' %>
+      </div><br>
+      <div class="field">
+        <%= f.label :state, "State" %><br>
+         <%= f.select(:state, options_for_select(us_states, @job.state)) %>
+      </div><br>
+      <div class="field">
+        <%= f.label :zip, "Zip" %><br>
+        <%= f.text_field :zip, class: 'form-control' %>
+      </div>
+  </div>
+
+  <div id="new_job_form_middle"> 
+      <div class="container">
+        <div class="row">
+           <div class='col-sm-3'>
+              <div class="form-group">
+                <%= f.label :start_date, "Start Date (use dropdown calendar)" %><br>
+              <div class='input-group date' id='datetimepicker1'>              
+              <%= f.text_field :start_date, :value => @job.start_date.try(:strftime, "%Y/%m/%d"), class: 'form-control' %>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+              </div>  
+            </div>
+        </div><br>           
+            
+        <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker1').datetimepicker();
+              });
+          </script>
+
+        <div class="row">
+            <div class='col-sm-3'>
+              <div class="form-group">
+                <%= f.label :end_date, "End Date (use dropdown calendar)" %><br>
+                <div class='input-group date' id='datetimepicker2'>                  
+                  <%= f.text_field :end_date, :value => @job.start_date.try(:strftime, "%Y/%m/%d"), class: 'form-control' %>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>  
+            </div>
+        </div><br> 
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker();
+            });
+        </script>
+
+        <div class="row">
+          <div class='col-sm-3'>
+            <div class="form-group">
+              <%= f.label :sat,"Sat shift? (leave blank if no Saturday shift)" %>
+              <%= f.check_box :sat %>
+            </div>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class='col-sm-3'>
+            <div class="form-group">
+              <%= f.label :sun, "Sun shift? (leave blank if no Sunday shift)" %>
+              <%= f.check_box :sun %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="new_job_form_right">      
+          <div class=""field"">
+            <div class='col-sm-3'>
+            <div class="form-group">  
+            <%= f.label :time, "Start Time (hh:mm:AM/PM)" %><br>
+            <%= f.text_field :time, :value => @job.time.try(:strftime, "%I:%M%p"), class: 'form-control' %>
+           </div>
+           </div> 
+          </div><br><br><br>
+          <div class=""field"">
+            <div class='col-sm-3'>
+              <div class="form-group">  
+                <%= f.label :timezone, "Time Zone" %><br>
+                <%= f.select(:timezone, options_for_select(us_zones_widget, @job.timezone)) %>
+              </div>
+            </div>
+          </div><br><br><br>
+          <div class=""field"">
+            <div class='col-sm-3'>
+              <div class="form-group">  
+                <%= f.label :sched_hrs, "Work Hrs per Day" %><br>
+                <%= f.number_field :sched_hrs, class: 'form-control' %>
+              </div>
+            </div>
+          </div><br><br><br>
+          <div class=""field"">
+            <div class='col-sm-3'>
+              <div class="form-group">  
+                <%= f.label :manpower, "Number of Agents Needed" %><br>
+                <%= f.number_field :manpower, class: 'form-control' %>
+              </div>
+          </div>
+          </div><br><br><br>
+      
+    </div>  
+
+<% end %>

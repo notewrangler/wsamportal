@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+
+        <div class="banner">
+          <h5>WSM Weekly Invoice for Field Agent: <b><%= @agent.handle %></b>, Week of <b><%=@timesheets.first.week_beginning %></b> to <b><%=@timesheets.first.week_ending %></b></h5>
+        </div><br><br><br>
+
+<%= form_tag admin_approve_path, method: :put do %>
+  <p><%= submit_tag 'Submit Updates', class: "btn btn-success" %> <b><%= link_to "  Back to Agent Timesheet List  ", timesheet_weeks_path %></b>    
+     
+      <div>
+        <% day = 0 %>
+          <% w = 1 %>
+        <table>
+          <tr>
+            <th>Day</th>
+            <th>Date</th>
+            <th>StoreName/Num</th>
+            <th>City/State</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th>Break (mins)</th>
+            <th>Total Hrs</th>
+            <th>Mileage </th>
+            <th>Drive Time </th>
+            <th>Exp. $</th>
+            <th>OnSite Mgr</th>
+            <th>Team Lead OK</th>
+            <th>Admin Auth.</th>
+          </tr>
+          
+            <% @timesheets.each do |timesheet| %>  
+                <tr>
+                  <td><%= sidebar_day[day] %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.formatted_date : "" %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.shook.shift.job.store_name : ""  %><%= timesheet.date.wday == w ? " #" + timesheet.shook.shift.job.store_num : "" %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.shook.shift.job.city : "" %><%=  timesheet.date.wday == w ? ", " + timesheet.shook.shift.job.state : "" %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.formatted_time_in  : "" %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.formatted_time_out  : "" %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.break_minutes : ""  %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.total_hrs : ""  %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.miles : ""  %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.drive_time : ""  %></td>
+                  <td><%= timesheet.date.wday == w ? number_to_currency(timesheet.expenses) : ""  %></td>
+                  <td><%= timesheet.date.wday == w ? timesheet.contact : ""  %></td>
+                  <td><b><%= timesheet.date.wday == w ? timesheet.team_lead_ok_chk : ""  %></b></td>
+                    <%= fields_for "timesheets[]", timesheet do |f| %>
+                      <td><%= f.label :approved, ">> "  %></i></b><%= f.check_box :approved %></td>
+                    <% end %>
+                </tr> 
+               <b><%= "Team Lead Note: " if timesheet.team_lead_note.present? %></b><%= timesheet.team_lead_note %>     
+              <% w += 1 %>
+            <% day += 1 %>           
+          <% end %>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div><br><br><br><br>
+<% end %>
+
+<script>
+
+$ ->;
+$('#selectAll').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;                        
+       });
+   } 
+   else {
+      $(':checkbox').each(function() {
+           this.checked = false;                        
+       });
+   } 
+});
+</script> 
+
+

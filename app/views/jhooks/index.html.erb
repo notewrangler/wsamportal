@@ -1,0 +1,58 @@
+
+<div class="head-cheese">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3><strong>Job# <%= @job.job_num %>: <%= @job.project %></strong></h3>
+      <p><%= @job.start_date.strftime("%a %b %d")  %> -- <%= @job.end_date.strftime("%a %b %d, %Y") %></p>
+      <h4><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> <%= @job.zip %></h4>
+    </div>
+  </div>
+</div>
+
+<div class="subdivide">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h4><strong>Available Agents (all shifts)</strong></h4>
+      <div id="all_in"
+        <ul id="agent_list">
+          <% @jhooks.all_in.each do |j| %>
+             <li class="jhook_agent_name"><%= j.agent.first_name%> <%= j.agent.last_name %> </li>
+             <li class="check_jhook"><strong>Assign</strong><%= check_box_tag "agent_ids[]", j.agent.id %></li><br>         
+          <% end %>
+        </ul> <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="subdivide">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h4><strong>Assigned Agents (all shifts)</strong></h4>
+      <div id="all_in"
+        <ul id="agent_list">
+          <% @jhooks.assigned.each do |j| %>
+             <li class="jhook_agent_name"><%= j.agent.first_name%> <%= j.agent.last_name %> </li> <br>                
+          <% end %>
+        </ul> <br>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+    <%= link_to "Save Assignments", "#", class: "btn btn-success"%>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+   
+
+

@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+      <div class="banner">
+        <h4>WSM Completed Shifts for: <%= session_handle %></h4>
+      </div>
+
+      <table>
+        <tr>
+            <th>Job#</th>
+            <th>Project</th>            
+            <th>Store Name</th>
+            <th>Store#</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Hrs</th>
+            <th>Wages</th>         
+        </tr>  
+
+          <div><% if @shooks.empty? %>
+          <h6><strong><%= "There are no completed shifts to display" %></strong></h6>
+          <% end %>
+          </div>  
+
+        <% @shooks.each do |s| %>      
+
+          <tr>
+              <td><%= s.shift.job.job_num %></td>
+              <td><strong><%= s.shift.job.project %></strong></td>              
+              <td><%= s.shift.job.store_name %></td>
+              <td><%= s.shift.job.store_num %></td>
+              <td><%= s.shift.job.address %></td>
+              <td><%= s.shift.job.city %></td>
+              <td><%= s.shift.job.state %></td>
+              <td><%= s.shift.job.zip %></td>
+              <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
+              <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
+              <td><%= s.shift.hours %></td>
+              <td><%= number_to_currency(s.timesheet.computed_wages) %></td>
+          </tr>     
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div> 
+
+
+      <br><br><br><br>
+
+

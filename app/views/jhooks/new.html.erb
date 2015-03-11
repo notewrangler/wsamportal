@@ -1,0 +1,39 @@
+<span>
+<h3>Job# <%= @job.job_num %>: <%= @job.project %></h3>
+<h4><%= @job.store_name %> Store #<%= @job.store_num %> -- <%= @job.address %>, <%= @job.city %>, <%= @job.state %> - <strong>Start Date: <%= @job.start_date.strftime("%A, %b %d, %Y") %></strong></h4></span>
+
+
+
+<%= form_tag new_job_jhook_path, method: :post do %>
+  <%= submit_tag "Submit Changes", class: "btn btn-success" %>
+    <span id="global">
+      <%= fields_for :jhook do |f| %>
+      <%= f.radio_button :state, "all_in" %>    
+      <%= f.label  :state_all_in, "Available for All Shifts" %> |  
+      <%= f.radio_button :state,  "unavailable" %>  
+      <%= f.label  :state_unavailable, "Unavailable for Any Shifts" %> | 
+      <%= f.radio_button :state, "selshift" %>  
+      <%= f.label  :state_selshift, "Selected Shifts(Click 'Submit Changes' to Edit)" %>  
+      <% end %>
+<% end %>
+
+      
+    </span>
+  
+<div id="shifts">
+      <h2 id="month">
+        <%= link_to "<", date: @date.prev_month %>
+        <%= @date.strftime("%B %Y") %>
+        <%= link_to ">", date: @date.next_month %>
+      </h2>      
+    <%= calendar @date do |date| %>
+      <%= date.day %>
+        <% if @shifts_by_date[date] %>
+          <ul>
+            <% @shifts_by_date[date].each do |shift| %>
+              <li><%= shift.job.project %> <%= shift.job.time.strftime("%I:%M%p") %></li> 
+            <% end %>
+          </ul>
+        <% end %> 
+    <% end %>  
+</div>

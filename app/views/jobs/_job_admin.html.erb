@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+
+      <div class="add_new">
+        <span><%= button_to 'Add New Job', new_job_path, method: :get, class: 'btn btn-info' %></span><br>
+        <p><strong>"Assign Agents" link</strong>: List of agents available for <strong>all</strong> shifts of a Job.  You can assign agents to complete jobs there.</p> 
+        <p><strong>Manual Assignment: </strong> Assign Agents not listed as available.</p>  
+      </div>
+
+      <% @jobs.each do |job| %>
+
+          <div><% if @jobs.empty? %>
+                  <h6><strong><%= "There are no jobs to display" %></strong></h6>
+                <% end %>
+          </div>
+
+       <div class="big_name" %>      
+             <h6><b><i>Job# <%= job.job_num %> | <%= job.project %> | <%= job.store_name %> # <%= job.store_num %>
+              | <%= job.address %>, <%= job.city %>, <%= job.state %> <%= job.zip %></i></b></h6>
+       </div><br> 
+
+      <div class="headings">
+        <ul>      
+            <li class="w_s_date">Strt Date</li>
+            <li class="w_e_date">End Date</li>
+            <li class="w_time">Strt Time</li>
+            <li class="w_hrs">Hrs</li>
+            <li class="w_man">#Agts Req'd</li>
+            <li class="w_agts">#All In</li>
+            <li class="w_partial">#Partial</li>
+            <li class="w_assd">#Assigned</li>
+            
+        <ul>
+      </div>
+      <br>
+
+      <div class="job_data">
+        <ul>    
+          <li class="w_s_date"><%= job.formatted_start_date %></li>
+          <li class="w_e_date"><%= job.formatted_end_date %></li>
+          <li class="w_time"><%= job.formatted_time %></li>
+          <li class="w_hrs"><%= job.sched_hrs %></li>
+          <li class="w_man"><%= job.manpower %></li>
+          <li class="w_agts"><%= job.jhooks.all_in.count %></li>
+          <li class="w_partial"><%= job.jhooks.partial.count %></li>
+          <li class="w_assd"><%= job.jhooks.assigned.count %></li> 
+        </ul>
+      </div> 
+
+
+      <div class="j_admin_links">
+        <ul>
+          <li class="f_edit">| <%= link_to 'Edit', edit_job_path(job) %></li>        
+          <li class="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li class="jhook_feed">| <%= link_to 'Assign Agents', available_agents_job_jhooks_path(job) %></li>
+          <li class="team_lead">|  <%= link_to 'Assign Team Lead', assign_team_lead_job_jhooks_path(job) %></li>
+          <li class="manual">|  <%= link_to 'Manual Assignment', assign_manual_job_jhooks_path(job) %></li>
+          <li class="calendr">|  <%= link_to 'Calendar', availability_calendar_job_shifts_path(job) %></li>
+        </ul>  
+      </div>
+
+      <% end %>
+      </div>
+  </div>
+</div>
+    
+
+ 
+ 

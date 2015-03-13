@@ -12,17 +12,8 @@
       <div id="logo_icon">
         <%= image_tag "wsm_lighter_logo.png" %>
       </div>
-      <h2>Wasatch Sales & Marketing</h2>      
-    </header>
-
-    <div class="container">
-        <% flash.each do |type, message| %>
-          <div class="alert<%= flash_class type %> alert-dismissable" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= message %>
-        </div>
-        <% end %>
-      </div>
+      <h1>Wasatch Sales & Marketing</h1>      
+    </header>   
 
 <div class="container">
 	<div class="jumbotron">
@@ -31,6 +22,19 @@
 			<p>Please Log In to update your personal information, find available jobs, check your schedule, report completed shifts, or download useful documents</p>
 	</div>
 </div>
+
+ <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        <% flash.each do |type, message| %>
+          <div class="alert<%= flash_class type %>alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p style="color: red"><%= message %></p>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">

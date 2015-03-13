@@ -36,8 +36,9 @@ body {
   border-radius: 5px;
   padding: 2px 0 15px 0;
   font-family: 'Old Standard TT', serif;
-  color: #15F48C;
-  font-size: 1.2em;
+  text-shadow: 2px 2px #f2fdf3;
+  color: #18b42d;
+  font-size: 1.3em;
   background-image: url(mtnpan010428.jpg);
   background-size: 100%;
  }

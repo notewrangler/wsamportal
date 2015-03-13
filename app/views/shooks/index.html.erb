@@ -1,52 +1,56 @@
 
 
-<div class="banner">
-  <h3>WSM Assigned Shifts for <%= session_handle %></h3>
-</div>
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+      <div class="banner">
+        <h4>WSM Assigned Shifts for: <%= session_handle %></h4>
+      </div>
+      <div><% if @shooks.empty? %>
+          <h6><strong><%= "There are no assigned shifts to display" %></strong></h6>
+          <% end %>
+          </div>
+      <table>
+          <tr>
+              <th>Job#</th>
+              <th>Project</th>            
+              <th>Store Name</th>
+              <th>Store#</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Hrs</th>
+              <th>Wages</th>         
+          </tr>  
+            
 
+        <% @shooks.each do |s| %>      
 
-<div class="sh_headings">
-  <ul>
-      <li class="j_num">Job#</li>
-      <li class="pj">Project</li>
-      <li class="s_num">Store#</li>
-      <li class="s_name">Name</li>
-      <li class="s_addy">Address</li>
-      <li class="s_city">City</li>
-      <li class="s_state">State</li>
-      <li class="s_zip">Zip</li>
-      <li class="w_date">Date</li>
-      <li class="w_time">Time</li>
-      <li class="w_hrs">Hrs</li>         
-  <ul>
-</div> 
+         <tr>
+            <td><%= s.shift.job.job_num %></td>
+            <td><strong><%= s.shift.job.project %></strong></td>              
+            <td><%= s.shift.job.store_name %></td>
+            <td><%= s.shift.job.store_num %></td>
+            <td><%= s.shift.job.address %></td>
+            <td><%= s.shift.job.city %></td>
+            <td><%= s.shift.job.state %></td>
+            <td><%= s.shift.job.zip %></td>
+            <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
+            <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
+            <td><%= s.shift.hours %></td>
+            <td><%= number_to_currency(s.timesheet.computed_wages) %></td>
+        </tr>    
+              <div class="agent_links">
+                <%= link_to "Submit Time Report", new_shook_timesheet_path(s) %> 
+              </div>  
+        <% end %>
+      </table>
+      </div>
+    </div>
+  </div>
 
-  <div><% if @shooks.empty? %>
-    <h6><strong><%= "There are no assigned shifts to display" %></strong></h6>
-    <% end %>
-    </div>    
+<br><br><br><br>
 
-  <% @shooks.each do |s| %>      
-
-    <div class="shift_data">
-      <ul>
-        <li class="j_num"><%= s.shift.job.job_num %></li>
-        <li class="pj"><strong><%= s.shift.job.project %></strong></li>
-        <li class="s_num"><%= s.shift.job.store_num %></li>
-        <li class="s_name"><%= s.shift.job.store_name %></li>
-        <li class="s_addy"><%= s.shift.job.address %></li>
-        <li class="s_city"><%= s.shift.job.city %></li>
-        <li class="s_state"><%= s.shift.job.state %></li>
-        <li class="s_zip"><%= s.shift.job.zip %></li>
-        <li class="w_date"><%= s.date.strftime("%^a %m/%d/%y") %></li>
-        <li class="w_time"><%= s.shift.job.time.strftime("%I:%M%p") %></li>
-        <li class="w_hrs"><%= s.shift.hours %></li>
-
-    </div> <br>
-    <div class="agent_links">
-      <%= link_to "Submit Time Report", new_shook_timesheet_path(s) %> 
-    </div>  
-  <% end %>
-  
-
-<br>

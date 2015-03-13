@@ -13,16 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20150307201516) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "jhooks", force: true do |t|
     t.integer  "job_id"
     t.integer  "agent_id"
     t.string   "state"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "team_lead"
     t.decimal  "wage_rate",  precision: 5, scale: 2
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    
   end
 
   create_table "jobs", force: true do |t|
@@ -52,27 +54,24 @@ ActiveRecord::Schema.define(version: 20150307201516) do
     t.date     "shift_date"
     t.integer  "hours"
     t.integer  "available_agents", default: 0
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shooks", force: true do |t|
     t.integer  "shift_id"
     t.integer  "agent_id"
-    t.integer  "jhook_id"
-    t.date     "date"
     t.string   "state"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    
-        
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "date"
+    t.integer  "jhook_id"
+    t.decimal  "wage_rate",  precision: 5, scale: 2
   end
 
   create_table "timesheets", force: true do |t|
     t.integer  "agent_id"
     t.integer  "shook_id"
-    t.string   "state"
-    t.date     "date"
     t.time     "time_in"
     t.time     "time_out"
     t.integer  "break_minutes"
@@ -81,12 +80,15 @@ ActiveRecord::Schema.define(version: 20150307201516) do
     t.decimal  "drive_time",     precision: 3, scale: 1
     t.decimal  "expenses",       precision: 5, scale: 2
     t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "contact"
     t.boolean  "team_lead_ok"
+    t.string   "state"
+    t.date     "date"
+    t.boolean  "approved"
+    t.decimal  "wage_rate",      precision: 5, scale: 2
     t.text     "team_lead_note"
-    t.boolean  "approved"    
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false   
   end
 
   create_table "users", force: true do |t|

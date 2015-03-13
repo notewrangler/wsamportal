@@ -1,5 +1,17 @@
 module SessionsHelper
 
+  
+def flash_class(type)
+    case type
+    when :alert
+      "alert-danger" 
+    when :notice
+      "alert-success" 
+    else
+      ""
+    end
+  end 
+
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id

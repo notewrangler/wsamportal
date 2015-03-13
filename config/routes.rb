@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   put 'ok_by_team_lead', to: 'timesheet_days#ok_by_team_lead', as: :ok_by_team_lead
   get 'weekly_timesheet/:agent_id', to: 'timesheet_weeks#weekly_timesheet', as: :weekly_timesheet
   put 'admin_approve', to: 'timesheet_weeks#admin_approve', as: :admin_approve
+ 
 
   
   resources :users

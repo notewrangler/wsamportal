@@ -16,14 +16,7 @@ class TimesheetDaysController < ApplicationController
 
 	private
 
-	# def find_timesheets(crew)
-	# 	@crew = crew
-	# 		ts = []
-	# 		@crew.each do |c|
-	# 			ts << c.timesheets.submitted				
-	# 		end
-	# 	 return ts
-	# end
+	
 
 	def timesheet_days_params
 		params.require(:timesheet_day).permit(:team_lead_ok)

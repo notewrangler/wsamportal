@@ -2,6 +2,8 @@ class JobsController < ApplicationController
  
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
+  # before_destroy :confirm
+
 
   # load_and_authorize_resource
 
@@ -90,11 +92,11 @@ class JobsController < ApplicationController
     end
   end
 
-  #GET jobs/agjob
-  def ajobs
-    @jobs = Job.all
-  end
+  # def confirm
+  #   data: {confirm: "Are You Sure?"}
+  # end
 
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job

@@ -22,6 +22,13 @@ class AgentsController < ApplicationController
       end   
   end
 
+  def destroy
+    @agent.destroy
+    respond_to do |format|
+      format.html { redirect_to jobs_url, notice: 'Agent was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
 
 	
 

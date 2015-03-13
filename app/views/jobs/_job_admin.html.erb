@@ -51,12 +51,12 @@
 
       <div class="j_admin_links">
         <ul>
-          <li class="f_edit">| <%= link_to 'Edit', edit_job_path(job) %></li>        
-          <li class="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li class="f_edit">| <%= link_to 'Edit', edit_job_path(job) %></li>
+           <li class="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li>          
           <li class="jhook_feed">| <%= link_to 'Assign Agents', available_agents_job_jhooks_path(job) %></li>
           <li class="team_lead">|  <%= link_to 'Assign Team Lead', assign_team_lead_job_jhooks_path(job) %></li>
           <li class="manual">|  <%= link_to 'Manual Assignment', assign_manual_job_jhooks_path(job) %></li>
-          <li class="calendr">|  <%= link_to 'Calendar', availability_calendar_job_shifts_path(job) %></li>
+          <li class="calendr">|  <%= link_to 'Calendar', availability_calendar_job_shifts_path(job) %></li>         
         </ul>  
       </div>
 

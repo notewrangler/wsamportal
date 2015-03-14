@@ -18,7 +18,7 @@ class ShiftsController < ApplicationController
 
   # GET /shifts
   def index
-      @shifts = Shift.all.select { |s| (s.available_agents < s.job.manpower) && s.shift_date >= Date.today}
+      @shifts = Shift.all.order(:shift_date).select { |s| s.shift_date >= Date.today}
   end
 
   # GET /shifts/1

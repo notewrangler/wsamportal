@@ -3,7 +3,7 @@ class AgentsController < ApplicationController
 	before_action :set_agent, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		@agents = Agent.all
+		@agents = Agent.all.order(:last_name)
 	end
 
   def show

@@ -22,8 +22,7 @@
               <th>Zip</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Hrs</th>
-              <th>Wages</th>         
+              <th>Hrs</th>                      
           </tr>  
             
 
@@ -40,8 +39,7 @@
             <td><%= s.shift.job.zip %></td>
             <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
             <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
-            <td><%= s.shift.hours %></td>
-            <td><%= number_to_currency(s.timesheet.computed_wages) %></td>
+            <td><%= s.shift.hours %></td>            
         </tr>    
               <div class="agent_links">
                 <%= link_to "Submit Time Report", new_shook_timesheet_path(s) %> 

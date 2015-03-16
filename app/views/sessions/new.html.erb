@@ -9,46 +9,54 @@
   <meta name="viewport" content="width-device-width, intial-scale=1">
 </head>
   <body>
-    <header>
-      <div id="logo_icon">
-        <%= image_tag "wsm_lighter_logo.png" %>
-      </div>
-      <h1>Wasatch Sales & Marketing</h1>      
-    </header>   
+    <div class="container">
+      
+        <header>
+          <div id="logo_icon">
+            <%= image_tag "wsm_lighter_logo.png" %>
+          </div>
+          <h2>Wasatch Sales & Marketing</h2>      
+        </header>
+    
+  </div>   
 
 <div class="container">
-	<div class="jumbotron">
-		<h1>WSM Login Page</h1>
-			<h2><em>Welcome to the WSM Contractor Portal.</em><h2><br> 
+  <div class="col-md-6 col-md-offset-3">
+	  <div class="jumbotron">
+    <h2><strong>WSM Login Page<strong></h2>
+			<h3><em>Welcome to the WSM Contractor Portal.</em><h3><br> 
 			<p>Please Log In to update your personal information, find available jobs, check your schedule, report completed shifts, or download useful documents</p>
-	</div>
+	 </div>
+  </div>
 </div>
 
  <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-        <% flash.each do |type, message| %>
-          <div class="alert<%= flash_class type %>alert-dismissable" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <p style="color: red"><%= message %></p>
-          </div>
-        <% end %>
+          <% flash.each do |type, message| %>
+            <div class="alert<%= flash_class type %>alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <p style="color: red"><%= message %></p>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
+  </div>
+   
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.label :username, "UserName" %>
+        <%= f.text_field :username, class: 'form-control', autofocus: :true %>
 
-      <%= f.label :username, "UserName" %>
-      <%= f.text_field :username, class: 'form-control', autofocus: :true %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %><br>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %><br>
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+      <% end %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-	</div>
+  	</div>
+  </div>
 </div>

@@ -38,7 +38,7 @@
               <td><%= s.timesheet.contact %></td> 
          </tr>           
         </table>
-             <p><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %> 
+             <p><b>On-Site @time: </b><%= s.formatted_sign_in %><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %> 
                   <b><%= "  ||   Mileage: " if s.timesheet.miles.present? %></b><%= s.timesheet.miles %><b><%= " | Drive Time:" if s.timesheet.drive_time.present? %></b><%= s.timesheet.drive_time %><b><%= " | Expenses: " if s.timesheet.expenses.present? %></b><%= number_to_currency s.timesheet.expenses %></p>
              <p><%= "Comments:" if s.timesheet.comments.present? %><%= s.timesheet.comments %> 
           

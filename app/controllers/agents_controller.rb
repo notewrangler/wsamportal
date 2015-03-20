@@ -16,7 +16,8 @@ class AgentsController < ApplicationController
   # PATCH/PUT /agents/1.json
   def update  
       if @agent.update(agent_params)
-        redirect_to @agent, notice: 'agent was successfully updated.'       
+        flash[:notice] = 'agent was successfully updated.'
+        redirect_to @agent        
       else
          render :edit 
       end   
@@ -24,10 +25,8 @@ class AgentsController < ApplicationController
 
   def destroy
     @agent.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Agent was successfully deleted.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Agent was successfully deleted.'
+    redirect_to jobs_url     
   end
 
 	

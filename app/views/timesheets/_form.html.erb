@@ -10,65 +10,50 @@
       </ul>
     </div>
   <% end %>
+        <div>
+          <p style="color: red">* = Required Field</p>
+        </div>  
 
-  <div id="time_report_form_left">
-<div class="container">
-  <div class='col-sm-3'>
-      <div class="field">
-        <%= f.label :time_in, "Time In" %><br>
-        <%= f.text_field :time_in, class: 'form-control' %><br>
-      </div>
-      <div class="field">
-        <%= f.label :time_out, "Time Out" %><br>
-        <%= f.text_field :time_out, class: 'form-control' %><br>
-      </div>
-      <div class="field">
-        <%= f.label :break_min, "Break (in minutes)" %><br>
-         <%= f.number_field :break_minutes, class: 'form-control' %><br>
-      </div>
-      <div class="field">
-        <%= f.label :total_hrs, "Total Hrs" %><br>
-        <%= f.number_field :total_hrs, in: 0.5..24.0, step: 0.25, class: 'form-control' %>
-      </div>
-    </div>  
-    </div>
-  </div>
-
-  <div id="time_report_form_middle"> 
-    <div class="container">
-      <div class='col-sm-3'> 
-      <div class="field">
-        <%= f.label :miles, "Mileage (if applicable)" %><br>
-        <%= f.number_field :miles, in: 50.0..500.0, step: 0.1, class: 'form-control'   %><br>
-      </div>
-      <div class="field">
-        <%= f.label :expenses,"Expenses (if applicable)" %><br>
-        <%= f.number_field :expenses, in: 1.00..200.00, step: 0.01, class: 'form-control'  %><br>
-      </div>
-      <div class="field">
-        <%= f.label :contact,"Supervisor/Store Contact" %><br>
-        <%= f.text_field :contact, class: 'form-control'  %><br>
-      </div>
-      </div>
-    </div> 
-  </div>
-
-  <div id="time_report_form_right">
-     <div class="container">
-      <div class='col-sm-3'> 
-      <div class="field">
-        <%= f.label :comments,"Comments" %><br>
-        <%= f.text_area :comments, size: "30x6", class: 'form-control'  %>
-      </div>
-      </div>
-      </div>
-  </div><br>
+        <div class="field">
+          <%= f.label :time_in, "Time In " %><span style="color: red"> * </span><br>
+          <%= f.text_field :time_in, class: 'form-control' %><br>
+        </div>
+        <div class="field">
+          <%= f.label :time_out, "Time Out" %><span style="color: red"> * </span><br>
+          <%= f.text_field :time_out, class: 'form-control' %><br>
+        </div>
+        <div class="field">
+          <%= f.label :break_min, "Break (in minutes)" %><span style="color: red"> * </span><br>
+           <%= f.number_field :break_minutes, class: 'form-control' %><br>
+        </div>
+        <div class="field">
+          <%= f.label :total_hrs, "Total Hrs" %><span style="color: red"> * </span><br>
+          <%= f.number_field :total_hrs, in: 0.5..24.0, step: 0.25, class: 'form-control' %><br>
+        </div> 
+      
+        <div class="field">
+          <%= f.label :miles, "Mileage (if applicable)" %><br>
+          <%= f.number_field :miles, in: 50.0..500.0, step: 0.1, class: 'form-control'   %><br>
+        </div>
+        <div class="field">
+          <%= f.label :expenses,"Expenses (if applicable)" %><br>
+          <%= f.number_field :expenses, in: 1.00..200.00, step: 0.01, class: 'form-control'  %><br>
+        </div>
+        <div class="field">
+          <%= f.label :contact,"Supervisor/Store Contact" %><span style="color: red"> * </span><br>
+          <%= f.text_field :contact, class: 'form-control'  %><br>
+        </div><br>   
+    
+        <div class="field">
+          <%= f.label :comments,"Comments" %><br>
+          <%= f.text_area :comments, size: "30x6", class: 'form-control'  %>
+        </div>
+      <br>
 
 
-  <div id="time_report_submit">    
-      <div class="actions">
+       <div class="sign-in-button">
         <%= f.submit "Submit Time Report", class: "btn btn-success"%>
-      </div>   
-  </div>
+      </div> 
   
+    
 <% end %>

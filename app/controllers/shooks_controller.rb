@@ -10,13 +10,22 @@ class ShooksController < ApplicationController
 
 
 	def index
-		@shooks = Shook.assigned.where(agent_id: current_agent).order(:date)		
+		@shooks = Shook.assigned.where(agent_id: current_agent.id ).order(:date)		
+	end	
+
+	
+
+	def sign_in_page
+		@shook = Shook.find(params[:id])
 	end
 
-	 # def assign_single_shift
-  #   @shift = Shift.find(params[:id])
-  #   @agent_select = Agent.all.order(:last_name).map{|a| [ a.alpha_handle + ": " + a.username,  a.id] }
-  # end
+	def signed_in
+		@shook = Shook.find(params[:id])
+		@shook.sign_in_time = Time.zone.now
+		@shook.signed_in = true
+		@shook.save
+		redirect_to session_logout_path, notice: 'You have successfully signed in for your Shift.'
+	end
 
 	
 	def map_feed

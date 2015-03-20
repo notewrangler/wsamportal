@@ -1,0 +1,32 @@
+<%= form_tag signed_in_shook_path, method: :put do %>
+
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<div class="head-cheese">
+	  	<h3><strong>===Agent Sign-In===</strong></h3>
+			<h4><strong>Job# <%= @shook.shift.job.job_num %>: <%= @shook.shift.job.project %></strong></h4>			
+			<h5><%= @shook.shift.job.store_name %> Store #<%= @shook.shift.job.store_num %> -- <%= @shook.shift.job.address %>, <%= @shook.shift.job.city %>, <%= @shook.shift.job.state %>, <%= @shook.shift.job.zip %></h5>
+			<h5><%= @shook.shift.shift_date.strftime("%a %b %d %Y")  %></h5>			 
+		</div>
+	</div>
+</div><br>
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	  	<div class="sign-in-time">
+	  	<h3><strong>Time Now: </strong><%= Time.zone.now.strftime("%l:%M %p %Z")%></h3>
+	  </div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+			  <div class="sign-in-check">
+			  	<%= hidden_field_tag :id, :value => @shook.id %> 
+			  </div>
+	  	<h2><%= submit_tag "Sign In", class: "sign-in-button" %></h2>
+	  	</div>
+	</div>
+</div><br><br><br><br><br><br><br><br>
+<% end %>

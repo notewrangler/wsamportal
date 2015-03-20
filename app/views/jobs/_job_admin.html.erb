@@ -3,9 +3,11 @@
      <div class="col-md-8 col-md-offset-2">
 
       <div class="add_new">
-        <span><%= button_to 'Add New Job', new_job_path, method: :get, class: 'btn btn-info' %></span><br>
-        <p><strong>"Assign Agents" link</strong>: List of agents available for <strong>all</strong> shifts of a Job.  You can assign agents to complete jobs there.</p> 
-        <p><strong>Manual Assignment: </strong> Assign Agents not listed as available.</p>  
+        <span><%= button_to 'Add New Job', new_job_path, method: :get, class: 'btn btn-info' %></span><br>        
+        <p><strong>Assign Agents</strong>: List of agents available for <strong>all</strong> shifts of a Job.  Assign agents to complete Jobs there.</p> 
+        <p><strong>Manual Assignment: </strong> Assign Agents, not listed as available, from dropdown menu.</p> 
+        <p><strong>Remove Agents: </strong> Remove Agents from <i>complete</i> Job.</p> 
+        <p><strong>Calendar: </strong> View Shifts--Assign Partial Jobs--(+Link to <i>Remove</i> Agents from specific shifts).</p> 
       </div>
 
       <% @jobs.each do |job| %>
@@ -52,10 +54,11 @@
       <div class="j_admin_links">
         <ul>
           <li class="f_edit">| <%= link_to 'Edit', edit_job_path(job) %></li>
-           <li class="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li>          
-          <li class="jhook_feed">| <%= link_to 'Assign Agents', available_agents_job_jhooks_path(job) %></li>
-          <li class="team_lead">|  <%= link_to 'Assign Team Lead', assign_team_lead_job_jhooks_path(job) %></li>
+          <li class="f_delete">| <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></li> 
+          <li class="team_lead">|  <%= link_to 'Assign Team Lead', assign_team_lead_job_jhooks_path(job) %></li>         
+          <li class="jhook_feed">| <%= link_to 'Assign Agents', available_agents_job_jhooks_path(job) %></li>          
           <li class="manual">|  <%= link_to 'Manual Assignment', assign_manual_job_jhooks_path(job) %></li>
+          <li class="jhook_unfeed">| <%= link_to 'Remove Agents', remove_agents_job_jhooks_path(job) %></li>
           <li class="calendr">|  <%= link_to 'Calendar', availability_calendar_job_shifts_path(job) %></li>         
         </ul>  
       </div>

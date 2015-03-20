@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307201516) do
+ActiveRecord::Schema.define(version: 20150318194632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,8 @@ ActiveRecord::Schema.define(version: 20150307201516) do
     t.datetime "updated_at"
     t.date     "date"
     t.integer  "jhook_id"
-    t.decimal  "wage_rate",  precision: 5, scale: 2
+    t.datetime "sign_in_time"
+    t.boolean  "signed_in"
   end
 
   create_table "timesheets", force: true do |t|
@@ -87,7 +88,6 @@ ActiveRecord::Schema.define(version: 20150307201516) do
     t.string   "state"
     t.date     "date"
     t.boolean  "approved"
-    t.decimal  "wage_rate",      precision: 5, scale: 2
     t.text     "team_lead_note"
   end
 

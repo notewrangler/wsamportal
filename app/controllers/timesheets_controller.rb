@@ -11,18 +11,19 @@ class TimesheetsController < ApplicationController
 		if @timesheet.save
 			@timesheet.update_attributes(agent_id: @shook.agent_id, shook_id: @shook.id, date: @shook.date, state: 'submitted')
     	@shook.report!
-    	redirect_to shooks_path, notice: 'Time Report Successfully Saved'     
+    	flash[:notice] = 'Time Report Successfully Submitted'
+    	redirect_to shooks_path      
     else
       render :new, shook: @shook
     end
 	end
 
 	
-	def weekly
-		@agent = Agent.find(params[:id])
-		@count = check_time_sheet_scope(@agent)
-		@timesheets = @agent.timesheets.first(@count)
-	end
+	# def weekly
+	# 	@agent = Agent.find(params[:id])
+	# 	@count = check_time_sheet_scope(@agent)
+	# 	@timesheets = @agent.timesheets.first(@count)
+	# end
 
 	def show
 	end

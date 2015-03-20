@@ -15,12 +15,12 @@
 			        <div>
 								<table>
 										<tr>
-											<th class="timesheet-name">Agent</th>
-											<th>Job #</th>
+											<th class="timesheet-name">Agent</th>											
 											<th>Date</th>
 											<th>Time In</th>
 											<th>Time Out</th>
 											<th>Break Min</th>
+											<th>Hrs</th>
 											<th>Miles</th>
 											<th>Drive Time</th>
 											<th>Expenses</th>
@@ -30,12 +30,12 @@
 										</tr>	
 
 										<tr>
-											<td class="timesheet-name"><%= timesheet.agent.handle %></td>
-											<td><%= @job.job_num %></td>
+											<td class="timesheet-name"><%= timesheet.agent.handle %></td>											
 											<td><%= timesheet.formatted_date %></td>
 											<td><%= timesheet.formatted_time_in %></td>
 											<td><%= timesheet.formatted_time_out %></td>
 											<td><%= timesheet.break_minutes %></td>
+											<td><%= timesheet.total_hrs %></td>
 											<td><%= timesheet.miles %></td>
 											<td><%= timesheet.drive_time %></td>
 											<td><%= timesheet.expenses %></td>
@@ -50,7 +50,7 @@
 								<p><b><%= "Comments: " if timesheet.comments.present? %></b><%= timesheet.comments %></p>
 						<% end %>		
 			  <% end %>  
-			  				<h5><b><%= "Timesheets are up to date" if @timesheets.empty? %></b></h5>
+			  				<h5><b><%= "Timesheets are up to date" if @timesheets.nil? %></b></h5>
 	  </div> 
   </div>  
 </div>  

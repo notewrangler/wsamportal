@@ -10,8 +10,11 @@ has_one :timesheet
 	scope :unavailable, -> { with_state(:unavailable) }
 	scope :opted, -> { with_state(:opted) }
 	scope :assigned, -> { with_state(:assigned) }
+	scope :removed, -> { with_state(:removed)}
+	scope :signed_in, -> { where(signed_in: true)}
 	scope :reported, -> { with_state(:reported) }
 	scope :completed, -> { with_state(:completed) }
+	scope :dissaproved, -> { with_state(:dissaproved)}
 
 		state_machine :state, :initial => :open do
 
@@ -47,6 +50,11 @@ has_one :timesheet
 				transition :reported => :disapproved
 			end
 		end
+
+	def formatted_sign_in
+		return "" if sign_in_time.blank?
+			sign_in_time.strftime("%I:%M %p %Z")
+	end	
 
 	def formatted_date
     return "" if date.blank?

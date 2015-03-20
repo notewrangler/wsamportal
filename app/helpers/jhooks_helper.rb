@@ -3,9 +3,9 @@ module JhooksHelper
 	def check_availability(state)
 		case state
 		when "all"
-			flash.now notice: "all shifts marked as available"
+			flash.now[:notice] = "all shifts marked as available"
 		when "reject"	
-			flash.now notice: "all shifts marked as unavailable"
+			flash.now[:notice] = "all shifts marked as unavailable"
 		# when "sel"
 		end
 	end

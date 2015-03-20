@@ -10,7 +10,8 @@ class ShiftsController < ApplicationController
     def create
     @shift = Shift.new(shift_params)    
       if @shift.save
-         redirect_to @shift, notice: 'Shift was successfully created.'         
+         flash[:notice] = 'Shift was successfully created.'
+         redirect_to @shift          
       else
         render :new      
       end    
@@ -41,7 +42,7 @@ class ShiftsController < ApplicationController
     @jhook.update_attributes(state: 'partial')
     @shook =  Shook.find_or_create_by(:agent_id => @agent.id, :shift_id => @shift.id) 
     @shook.update_attributes(date: @shift.shift_date, state: 'assigned' )     
-        redirect_to wage_setter_partial_job_jhooks_path(@shift.job), notice: 'Shift was successfully assigned' 
+        redirect_to wage_setter_partial_job_jhooks_path(@shift.job)
   end
 
   # PATCH/PUT /shifts/1
@@ -64,11 +65,25 @@ class ShiftsController < ApplicationController
       @shooks.each do |s|
         s.update_attributes(state: 'assigned')    
       end     
-    redirect_to wage_setter_partial_job_jhooks_path(@job), notice: 'Shifts were successfully assigned'
+    redirect_to wage_setter_partial_job_jhooks_path(@job)
   end
 
-  # def daily
-  # end 
+  def remove_agents_calendar
+    @job = Job.find(params[:job_id])
+    @shifts_by_date = @job.shifts.all.group_by(&:shift_date)
+    @date = params[:date] ? Date.parse(params[:date]) : @job.start_date
+  end
+
+  def shift_level_remove
+    @shooks = Shook.find(params[:ids])
+    @jhook = @shooks.first.jhook
+    @job = @jhook.job
+      @shooks.each do |s|
+        s.update_attributes(state: 'removed')    
+      end
+    flash[:notice] = 'Shifts were successfully removed'     
+    redirect_to jobs_path
+  end 
 
  
 
@@ -76,7 +91,8 @@ class ShiftsController < ApplicationController
   # DELETE /shifts/1.json
   def destroy
     @shift.destroy
-      redirect_to shifts_url, notice: 'Shift was successfully destroyed.'    
+    flash[:notice] = 'Shift was successfully destroyed.'
+    redirect_to shifts_url    
   end
 
   private

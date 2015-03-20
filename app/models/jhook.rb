@@ -3,7 +3,7 @@ class Jhook < ActiveRecord::Base
 	
 	belongs_to :job
 	belongs_to :agent
-	has_many :shooks
+	has_many :shooks, dependent: :destroy
 
 	# validate :date_cannot_already_be_assigned, only: [:manual_assignment]
 	# validate :dates_cannot_already_be_assigned, only: [:assign]
@@ -16,6 +16,7 @@ class Jhook < ActiveRecord::Base
 	scope :selected_shifts, -> { with_state(:selected_shifts) }
 	scope :partial, -> { with_state(:partial)}
 	scope :assigned, -> { with_state(:assigned) }
+	scope :removed, -> { with_state(:removed)}
 	scope :reported, -> { with_state(:reported)}
 	scope :completed, -> { with_state(:completed)}
 	scope :nopay, -> { where wage_rate: nil}

@@ -2,3 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.jhook_assigned_handle {
+	display: inline-block;
+	float: left;
+	width: 48%;
+	margin-right: 5px;
+}
+
+.check_jhook_label {
+	display: inline-block;
+	float: left;
+	width: 10%;
+	margin-right: 5px;
+}
+.check_jhook {
+	display: inline-block;
+	float: left;
+	width: 5%;
+	margin-right: 5px;
+}

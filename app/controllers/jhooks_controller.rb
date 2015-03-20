@@ -23,10 +23,12 @@ class JhooksController < ApplicationController
 			  when "all_in" 				  	
 			  	@jhook.update_attributes(agent_id: current_agent.id)							  	
 	  			@jhook.job.shifts.each { |shift| shift.increment!(:available_agents) }
-	  			splay_opted(@jhook)				  	
-			  	redirect_to jobs_path
+	  			splay_opted(@jhook)	
+	  			flash[:notice] = 'Availability Successfully Updated'			  	
+			  	redirect_to jobs_path 
 			  when "unavailable"				  	
 			  	@jhook.update_attributes(agent_id: current_agent.id)
+			  	flash[:notice] = 'Availability Successfully Updated'
 			  	redirect_to jobs_path
 			  when "selected_shifts"			  	
 			  	@jhook.update_attributes(agent_id: current_agent.id)	
@@ -54,12 +56,37 @@ class JhooksController < ApplicationController
 	  def assign	  	
 	  	@job = Job.find(params[:job_id])
 		  @jhooks = Jhook.find(params[:ids])
-		  @jhooks.each do |jhook| 
-		  	jhook.update_attributes(state: 'assigned')		    
-		  	splay_assigned(jhook)				
-			end				
-		  	redirect_to wage_setter_job_jhooks_path(@job)				  					 	
+
+		  if @jhooks.length <= @job.manpower
+			  @jhooks.each do |jhook| 
+			  	jhook.update_attributes(state: 'assigned')		    
+			  	splay_assigned(jhook)				
+				end				
+			  	redirect_to wage_setter_job_jhooks_path(@job)	
+			else
+			 	flash[:alert] = 'Number of Assigned Agents exceeds Required Agents'
+				redirect_to available_agents_job_jhooks_path
+			end	
+
 	  end
+
+	  def remove_agents
+	 	@job = Job.find(params[:job_id])
+	 	@jhooks = @job.jhooks.all
+	 end
+
+	 def unassign	  	
+	  	@job = Job.find(params[:job_id])
+		  @jhooks = Jhook.find(params[:ids])
+		  @jhooks.each do |jhook| 
+		  	jhook.update_attributes(state: 'removed')		    
+		  	splay_removed(jhook)				
+			end	
+				flash[:notice] = 'Agent was Successfully Removed.'
+		  	redirect_to jobs_path 				  					 	
+	  end
+
+
 
 	  def wage_setter
 	  	@job = Job.find(params[:job_id])
@@ -73,6 +100,7 @@ class JhooksController < ApplicationController
 
 	  def set_wages
 	  	Jhook.update(params[:jhooks].keys, params[:jhooks].values)
+	  	flash[:notice] = 'Agent was Successfully Assigned.'
 	  	redirect_to jobs_path
 	  end
 
@@ -88,8 +116,9 @@ class JhooksController < ApplicationController
 	  		@shifts.each do |shift|
 		  		@shook = Shook.find_or_create_by(:shift_id => shift.id, :agent_id => current_agent.id)
 	  			@shook.opt!
-	  		end		 
-		  	redirect_to jobs_path
+	  		end	
+	  		flash[:notice] = 'Shifts were Successfully Selected'	 
+		  	redirect_to jobs_path 
 		 end
 
 		def assign_manual
@@ -103,7 +132,7 @@ class JhooksController < ApplicationController
      	@jhook =	Jhook.find_or_create_by(agent_id: @agent.id, job_id: @job.id)
      	@jhook.assign!
      	splay_assigned(@jhook)		 		   	 
-      redirect_to wage_setter_job_jhooks_path(@job)
+      redirect_to wage_setter_job_jhooks_path(@job) 
 		end 
 		
 		def destroy
@@ -135,6 +164,15 @@ class JhooksController < ApplicationController
 			@shifts.each do |shift|
 				@shook = Shook.find_or_create_by(:shift_id => shift.id, :agent_id => @jhook.agent.id) 
 				@shook.update_attributes(jhook_id: @jhook.id, state: 'assigned', date: shift.shift_date)
+			end
+		end
+
+		def splay_removed(jhook)
+			@jhook = jhook
+			@shifts = @jhook.job.shifts.all
+			@shifts.each do |shift|
+				@shook = Shook.find_by(:shift_id => shift.id, :agent_id => @jhook.agent.id) 
+				@shook.update_attributes(jhook_id: @jhook.id, state: 'removed', date: shift.shift_date)
 			end
 		end
 			

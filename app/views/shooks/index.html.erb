@@ -11,7 +11,8 @@
           <% end %>
           </div>
       <table>
-          <tr>
+          <tr> 
+              <th></th>             
               <th>Job#</th>
               <th>Project</th>            
               <th>Store Name</th>
@@ -23,13 +24,15 @@
               <th>Date</th>
               <th>Time</th>
               <th>Hrs</th>  
-              <th></th>                    
+              <th>Rate</th>               
+              <th></th>                   
           </tr>  
             
 
         <% @shooks.each do |s| %>      
 
          <tr>
+            <td><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></td>            
             <td><%= s.shift.job.job_num %></td>
             <td><strong><%= s.shift.job.project %></strong></td>              
             <td><%= s.shift.job.store_name %></td>
@@ -41,7 +44,8 @@
             <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
             <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
             <td><%= s.shift.hours %></td> 
-            <td><%= link_to "Time Report", new_shook_timesheet_path(s) %>           
+            <td><%= number_to_currency(s.jhook.wage_rate) %></td>
+            <td><%= link_to "Time Report", new_shook_timesheet_path(s) %></td>           
         </tr>    
               
         <% end %>

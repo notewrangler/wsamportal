@@ -4,16 +4,16 @@
 <span><h5><b>Required Agents: </b><%= @job.manpower %><b> | Agents Assigned (all shifts): </b><span style="color: green"><%= @job.jhooks.assigned.count %></span><b> | Agents Available (selected shifts): </b><%= @job.jhooks.selected_shifts.count %></h5>
 
 
- <%= form_tag shift_level_assign_job_shifts_path, method: :put do %> 
+ <%= form_tag shift_level_remove_job_shifts_path, method: :put do %> 
 
-  <%= submit_tag "Submit Changes", class: "btn btn-success" %><br><br> 
+  <%= submit_tag ">>Remove Checked Agent/Shifts<<", class: "btn btn-danger" %><br><br> 
    <p><b>Shifts may overlap into following month (use arrows to view)</b></p>
-          <p><span style="color: green">Agents in Green -- Assigned to Shift -- </span>
-          <span style="color: LawnGreen" class="glyphicon glyphicon-check"> = Signed In | </span>  
-          <span style="color: blue">Agents in Blue -- Time Report Submitted | </span>
-          <span style="color: red">Agents in Red -- Removed from Shift  | </span></p>
-          <h5><strong> >>>Agents with check boxes are <i>Available</i> -- check to Assign to Shifts<<<  </strong></h5>
-          <h4><%= link_to ">>Remove Agents from Shifts--Calendar<<", remove_agents_calendar_job_shifts_path(@job), class: "btn btn-danger" %></h4> 
+          <p><span style="color: green">Agents in Green -- Assigned to Shift | </span>
+          <span style="color: blue">Agents in Blue -- Time Report Submitted  | </span>
+          <span style="color: red">Agents in Red -- Removed from Shifts  | </span>
+          <span style="color: black">Agents in Black are Available | </span>
+          <span><strong>Check Assigned Agents to remove from shifts  </strong></p>
+           
   
       <div id="shifts">
           <h2 id="month">
@@ -28,25 +28,25 @@
                   <% @shifts_by_date[date].each do |shift| %>
                      <ul>  
                     <% shift.shooks.assigned.each do |shook| %>                  
-                      <li style="color: green"><%= shook.agent.handle %> <%= render sign_in_check if shook.signed_in? %></li> 
+                      <li style="color: green"> <%= check_box_tag 'ids[]', shook.id %> <%= shook.agent.handle %> 
                     <% end %>
                     </ul>
-                    <ul>
+                    <ul>                    
                       <% shift.shooks.reported.each do |shook| %>
-                      <li style="color: blue"><%= shook.agent.handle %></li>
+                      <li style="color: blue"><%= shook.agent.handle %>
                       <% end %>
                       </ul>  
                     <ul>
                     <% shift.shooks.opted.each do |shook| %>
-                      <li><%= check_box_tag 'ids[]', shook.id %> <%= shook.agent.handle %></li> 
+                      <li> <%= shook.agent.handle %></li> 
                     <% end %>
                      </ul> 
-                     <ul>
-                      <% shift.shooks.removed.each do |shook| %>
-                      <li style="color: red"><%= shook.agent.handle %>
-                      <% end %>
-                      </ul>
-
+                   <ul>
+                    <% shift.shooks.removed.each do |shook| %>
+                    <li style="color: red"><%= shook.agent.handle if !shook.reported? %>
+                    <% end %>
+                    </ul>
+                    <ul>                   
                   <% end %>
                 </ul>                
               <% end %> 

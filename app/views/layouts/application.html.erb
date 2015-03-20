@@ -19,8 +19,8 @@
 						
 				<div class="container">
 						<% flash.each do |type, message| %>
-							<div class="alert <%= flash_class type %> alert-dismissable" role="alert">
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<div class="alert <%= flash_class type %>">
+							<button type="button" class="close" data-dismiss="alert">x</button>
 							<%= message %>
 						</div>
 						<% end %>

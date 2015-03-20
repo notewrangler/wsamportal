@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+  get 'session_logout' => 'sessions#logout'
   delete 'logout' => 'sessions#destroy'
   get 'info_forms' => 'info_forms#index'
   get 'assign_single_shift/:id', to: 'shifts#assign_single_shift', as: :assign_single_shift
@@ -35,6 +36,8 @@ Rails.application.routes.draw do
         put :team_lead_assignment
         get :available_agents 
         put :assign
+        get :remove_agents
+        put :unassign
         get :shift_calendar     
         put :shift_selections
         get :assign_manual
@@ -47,7 +50,9 @@ Rails.application.routes.draw do
     resources :shifts do
       collection do
         get :availability_calendar
-        put :shift_level_assign        
+        put :shift_level_assign  
+        get :remove_agents_calendar
+        put :shift_level_remove      
       end
     end
 
@@ -56,7 +61,12 @@ Rails.application.routes.draw do
   resources :shifts, only: [:index ]
 
   resources :shooks do
-    resources :timesheets, only: [:new, :create]    
+     member do 
+      get 'sign_in_page', to: 'shooks#sign_in_page', as: :sign_in_page  
+      put 'signed_in', to: 'shooks#signed_in'
+      end 
+    resources :timesheets, only: [:new, :create] 
+
   end
 
   resources :timesheets, only: [:index, :destroy] 

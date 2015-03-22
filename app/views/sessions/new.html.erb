@@ -30,18 +30,15 @@
   </div>
 </div>
 
- <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <% flash.each do |type, message| %>
-            <div class="alert<%= flash_class type %>alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <p style="color: red"><%= message %></p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">          
+              <% flash.each do |name, msg| %>
+                <span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>                           
+              <% end %> 
             </div>
-          <% end %>
+          </div>            
         </div>
-      </div>
-  </div>
    
 <div class="container">
   <div class="row">

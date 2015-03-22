@@ -26,7 +26,8 @@ class ShooksController < ApplicationController
 		@shook.sign_in_time = Time.zone.now
 		@shook.signed_in = true
 		@shook.save
-		redirect_to session_logout_path, notice: 'You have successfully signed in for your Shift.'
+		flash[:success] = 'You have successfully signed in for your Shift.'
+		redirect_to session_logout_path 
 	end
 
 	

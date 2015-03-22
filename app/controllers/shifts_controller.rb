@@ -10,7 +10,7 @@ class ShiftsController < ApplicationController
     def create
     @shift = Shift.new(shift_params)    
       if @shift.save
-         flash[:notice] = 'Shift was successfully created.'
+         flash[:success] = 'Shift was successfully created.'
          redirect_to @shift          
       else
         render :new      
@@ -38,11 +38,16 @@ class ShiftsController < ApplicationController
   def single_shift_assign
     @shift = Shift.find(params[:id])
     @agent = Agent.find(params[:agent_id]) 
-    @jhook = Jhook.find_or_create_by(:job_id => @shift.job.id, :agent_id => @agent.id)
-    @jhook.update_attributes(state: 'partial')
-    @shook =  Shook.find_or_create_by(:agent_id => @agent.id, :shift_id => @shift.id) 
-    @shook.update_attributes(date: @shift.shift_date, state: 'assigned' )     
+    if Shook.exists?(agent_id: @agent_id, date: @shift.shift_date, state: 'assigned')
+      flash.now[:danger] = "Agent is already assigned to another shift on #{@shift.shift_date}"
+      redirect_to assign_single_shift_path
+    else  
+      @jhook = Jhook.find_or_create_by(:job_id => @shift.job.id, :agent_id => @agent.id)
+      @jhook.update_attributes(state: 'partial')
+      @shook =  Shook.find_or_create_by(:agent_id => @agent.id, :shift_id => @shift.id) 
+      @shook.update_attributes(date: @shift.shift_date, state: 'assigned' )     
         redirect_to wage_setter_partial_job_jhooks_path(@shift.job)
+    end    
   end
 
   # PATCH/PUT /shifts/1
@@ -63,8 +68,13 @@ class ShiftsController < ApplicationController
     @job = @jhook.job
     @jhook.update_attributes(state: 'partial_assign')
       @shooks.each do |s|
-        s.update_attributes(state: 'assigned')    
-      end     
+          if Shook.exists?(agent_id: @agent_id, date: @shift.shift_date, state: 'assigned')
+            flash.now[:alert] = "Agent is already assigned to another shift on #{s.date}"
+            redirect_to :back
+          else  
+          s.update_attributes(state: 'assigned')    
+          end 
+      end    
     redirect_to wage_setter_partial_job_jhooks_path(@job)
   end
 
@@ -81,7 +91,7 @@ class ShiftsController < ApplicationController
       @shooks.each do |s|
         s.update_attributes(state: 'removed')    
       end
-    flash[:notice] = 'Shifts were successfully removed'     
+    flash[:success] = 'Shifts were successfully removed'     
     redirect_to jobs_path
   end 
 
@@ -91,7 +101,7 @@ class ShiftsController < ApplicationController
   # DELETE /shifts/1.json
   def destroy
     @shift.destroy
-    flash[:notice] = 'Shift was successfully destroyed.'
+    flash[:success] = 'Shift was successfully destroyed.'
     redirect_to shifts_url    
   end
 

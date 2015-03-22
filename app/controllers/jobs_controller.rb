@@ -37,7 +37,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      flash[:notice] = 'Job was successfully created.'
+      flash[:success] = 'Job was successfully created.'
       redirect_to @job 
     else
       render :new
@@ -48,7 +48,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1.json
   def update    
       if @job.update(job_params)
-       flash[:notice] = 'Job was successfully updated.'  
+       flash[:success] = 'Job was successfully updated.'  
        redirect_to @job         
       else
          render :edit 
@@ -85,7 +85,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
-      flash[:notice] = 'Job was successfully destroyed.' 
+      flash[:success] = 'Job was successfully destroyed.' 
       redirect_to jobs_url  
   end
 

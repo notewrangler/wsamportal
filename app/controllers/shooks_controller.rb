@@ -13,6 +13,8 @@ class ShooksController < ApplicationController
 		@shooks = Shook.assigned.where(agent_id: current_agent.id ).order(:date)		
 	end	
 
+	def update
+	end
 	
 
 	def sign_in_page
@@ -31,11 +33,12 @@ class ShooksController < ApplicationController
 	def map_feed
 		@shook = Shook.find(params[:id])
 			"https://www.google.com/maps/place/" + @shook.shift.job.address.gsub(/ /, '+') + ',' + @shook.shift.job.city.gsub(/ /, '+') + ',' + @shook.shift.job.state + '+' + @shook.shift.job.zip
-
 	end
 
 	
 	def destroy
+		@shook = Shook.find(params[:id])
+		@shook.destroy 
 	end
 	
 	private

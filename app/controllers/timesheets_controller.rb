@@ -11,7 +11,7 @@ class TimesheetsController < ApplicationController
 		if @timesheet.save
 			@timesheet.update_attributes(agent_id: @shook.agent_id, shook_id: @shook.id, date: @shook.date, state: 'submitted')
     	@shook.report!
-    	flash[:notice] = 'Time Report Successfully Submitted'
+    	flash[:success] = 'Time Report Successfully Submitted'
     	redirect_to shooks_path      
     else
       render :new, shook: @shook

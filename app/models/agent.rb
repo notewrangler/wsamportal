@@ -17,6 +17,10 @@ class Agent < User;
   	self.last_name + ", " + self.first_name
   end
 
+  def home_town
+  	self.city + ", " + self.state
+  end
+
   def duties
   	self.jhooks.where(team_lead: true).pluck(:job_id)
   end

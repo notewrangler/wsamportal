@@ -4,6 +4,8 @@ belongs_to :agent
 belongs_to :shift
 belongs_to :jhook
 has_one :timesheet
+
+
  
 	
 

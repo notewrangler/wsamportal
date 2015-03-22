@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to sessions_path
     else
-      flash[:alert] = 'Invalid username/password combination'
+      flash[:danger] = 'Invalid username/password combination'
       redirect_to root_url
     end
   end

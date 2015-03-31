@@ -32,7 +32,7 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">          
+            <div class="col-xs-12 col-md-6 col-md-offset-3">          
               <% flash.each do |name, msg| %>
                 <span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>                           
               <% end %> 
@@ -42,7 +42,7 @@
    
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
       <%= form_for(:session, url: login_path) do |f| %>
 
         <%= f.label :username, "UserName" %>
@@ -57,3 +57,9 @@
   	</div>
   </div>
 </div>
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container-fluid">
+      <p>&copy; 2015 Ralph Johnson  <span><a href="http://wasatchsalesandmarketing.com">  Wasatch Sales & Marketing Home Page</span></p>
+      </div>
+    </div>

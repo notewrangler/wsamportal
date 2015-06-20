@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20150318194632) do
     t.integer  "agent_id"
     t.string   "state"
     t.text     "comment"
+    t.boolean  "team_lead"
+    t.decimal  "wage_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "team_lead"
-    t.decimal  "wage_rate",  precision: 5, scale: 2
   end
 
   create_table "jobs", force: true do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150318194632) do
     t.integer  "job_id"
     t.date     "shift_date"
     t.integer  "hours"
-    t.integer  "available_agents", default: 0
+    t.integer  "available_agents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,11 +61,11 @@ ActiveRecord::Schema.define(version: 20150318194632) do
   create_table "shooks", force: true do |t|
     t.integer  "shift_id"
     t.integer  "agent_id"
+    t.integer  "jhook_id"
+    t.date     "date"
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "date"
-    t.integer  "jhook_id"
     t.datetime "sign_in_time"
     t.boolean  "signed_in"
   end
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20150318194632) do
   create_table "timesheets", force: true do |t|
     t.integer  "agent_id"
     t.integer  "shook_id"
+    t.date     "date"
+    t.string   "state"
     t.time     "time_in"
     t.time     "time_out"
     t.integer  "break_minutes"
@@ -81,14 +83,12 @@ ActiveRecord::Schema.define(version: 20150318194632) do
     t.decimal  "drive_time",     precision: 3, scale: 1
     t.decimal  "expenses",       precision: 5, scale: 2
     t.text     "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "contact"
     t.boolean  "team_lead_ok"
-    t.string   "state"
-    t.date     "date"
-    t.boolean  "approved"
     t.text     "team_lead_note"
+    t.boolean  "approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

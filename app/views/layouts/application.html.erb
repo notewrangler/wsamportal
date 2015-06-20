@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WSM Portal</title>
+  <title>spot-ON Merchandising</title>
+  <%= favicon_link_tag 'favicon.ico' %>  
   <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width-device-width, intial-scale=1">
 </head>
-	<body>	
-		<div class="container">	
-				<header>
-						<div id="logo_icon">
-							<%= image_tag "wsm_lighter_logo.png" %>
-						</div>
-						<h2>Wasatch Sales & Marketing</h2>
-				</header>
+	<body>
 
+			<div class="container">
 				<div id="user_nav">
-						<%= render current_user_nav %> 
-				</div>
+								<%= render current_user_nav %> 
+				</div>	
+			</div>			
+			<div class="container">						
+					<div id="logo_icon_layout">
+						<%= image_tag "spot-on_logo.svg", id: "logo-layout" %>
+					</div>					
+			</div>					
 
 				<div class="container">
 					<div class="row">
 			  		<div class="col-md-6 col-md-offset-3">					
 							<% flash.each do |name, msg| %>
-								<span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>														
+								<span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>													
 							<% end %>	
 						</div>
 					</div>						
@@ -42,7 +43,7 @@
 
 				<div class="navbar navbar-default navbar-fixed-bottom">
 					<div class="container-fluid">
-					<p>&copy; 2015 Ralph Johnson  <span><a href="http://wasatchsalesandmarketing.com">  Wasatch Sales & Marketing Home Page</span></p>
+					<p>&copy; 2015 Ralph Johnson  <span><a href="#">  spot-ON Merchandising Home Page</span></p>
 					</div>
 				</div>	
 

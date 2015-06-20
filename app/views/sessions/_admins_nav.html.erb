@@ -1,22 +1,17 @@
-<div class="container">
-    <div class="banner">
-      <h3>WSM Administrators</h3>
-    </div>
-</div>
-
-    <div class="navbar">
-     <h4>Administrator: <%= session_handle %></h4>
-        <nav>
-          <ul class="nav nav-tabs">    
-            <li><%= link_to "Home", sessions_path %></li>
-            <li><%= link_to "View Agents", agents_path %></li> 
-            <li><%= link_to "JOBS-View/Add/Assign ", jobs_path %></li>
-            <li><%= link_to "Assign Loose Shifts", shifts_path %></li>
-            <li><%= link_to "View Agent Timesheets", timesheet_weeks_path %></li>
-            <li><%= link_to "Information and Forms", info_forms_path %></li>
-            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-          </ul><br>
-         </nav>
-      </div>
-    </div>
-  </div>
+<div class="container "> 
+  <div class="navbar">            
+    <nav>      
+        <ul class="nav nav-tabs">    
+          <li><%= link_to "Home", sessions_path %></li>
+          <li><%= link_to "View Agents", agents_path %></li> 
+          <li><%= link_to "JOBS-View/Add/Assign ", jobs_path %></li>
+          <li><%= link_to "Assign Loose Shifts", shifts_path %></li>
+          <li><%= link_to "View Agent Timesheets", timesheet_weeks_path %></li>
+          <li><%= link_to "Information and Forms", info_forms_path %></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        </ul>  
+    </nav> 
+   </div>    
+  <h4>Administrator: <%= session_handle %></h4>
+</div>  <!-- /.container --> 
+  

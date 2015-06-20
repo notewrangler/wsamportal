@@ -1,31 +1,30 @@
- <div class="big_name" %>
+<div class="big_name" %>      
+  <h4><%= agent.first_name %> <%=  agent.last_name %> </h4>
+</div> 
+
+  <div class="headings">
+    <ul>
+      <li id="addy">Address
+      <li id="town">City</li>
+      <li id="st">State</li>
+      <li id="zip">Zip</li>
+      <li id="ph">Phone</li>
+      <li id="em">Email</li>
       
-      <h4><%= agent.first_name %> <%=  agent.last_name %> </h4>
-    </div>  
-        <div class="headings">
-          <ul>
-            <li id="addy">Address
-            <li id="town">City</li>
-            <li id="st">State</li>
-            <li id="zip">Zip</li>
-            <li id="ph">Phone</li>
-            <li id="em">Email</li>
-            
-          </ul>
-      </div>
+    </ul>
+  </div>
 
- <div class="data">
-            <ul>
-              <li id="f_addy"><%= agent.address %></li>
-              <li id="f_town"><%= agent.city %></li>
-              <li id="f_st"><%= agent.state %></li>
-              <li id="f_zip"><%= agent.zip %></li>
-              <li id="f_ph"><%= number_to_phone(agent.phone, area_code: true) %></li>
-              <li id="f_em"><%= agent.email %></li>
-              
-            </ul> 
-      </div> 
+  <div class="data">
+    <ul>
+      <li id="f_addy"><%= agent.address %></li>
+      <li id="f_town"><%= agent.city %></li>
+      <li id="f_st"><%= agent.state %></li>
+      <li id="f_zip"><%= agent.zip %></li>
+      <li id="f_ph"><%= number_to_phone(agent.phone, area_code: true) %></li>
+      <li id="f_em"><%= agent.email %></li>      
+    </ul> 
+  </div> 
 
-       <%= render 'admin_links', agent: agent if current_user.admin? %>
+     <%= render 'admin_links', agent: agent if current_user.admin? %>
 
       

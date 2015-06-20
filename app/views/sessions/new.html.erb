@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WSM Portal</title>
+  <title>spot-ON Merchandising</title>
+  <%= favicon_link_tag 'favicon.ico' %>  
   <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>  
   <meta name="viewport" content="width-device-width, intial-scale=1">
 </head>
   <body>
+
+  <div class="jumbotron"> 
     <div class="container">
-      
-        <header>
-          <div id="logo_icon">
-            <%= image_tag "wsm_lighter_logo.png" %>
-          </div>
-          <h2>Wasatch Sales & Marketing</h2>      
-        </header>
-    
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-offset-3" id="logo_icon">       
+            <!-- <div id="logo_icon"> -->
+              <%= image_tag "spot-on_logo.svg", id: "logo"%>
+        </div>        
+      </div>  
+    </div>
   </div>   
 
-<div class="container">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-	  <div class="jumbotron">
-    <h2><strong>WSM Login Page<strong></h2>
-			<h3><em>Welcome to the WSM Contractor Portal.</em><h3><br> 
-			<p>Please Log In to update your personal information, find available jobs, check your schedule, report completed shifts, or download useful documents</p>
-	 </div>
-  </div>
-</div>
+    <div class="container">
+      <div class="col-xs-12 col-md-5 col-md-offset-3">    	  
+        <h4><strong><em>Welcome to the Spot-ON Contractor Portal.</em><strong></h4>    			
+    			<p>Please Log In:</p>
+      </div>
+    </div>
 
         <div class="container">
           <div class="row">
@@ -40,9 +39,9 @@
           </div>            
         </div>
    
-<div class="container">
+<div class="container" id="log_in">
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="col-xs-12 col-md-5 col-md-offset-3">
       <%= form_for(:session, url: login_path) do |f| %>
 
         <%= f.label :username, "UserName" %>
@@ -60,6 +59,6 @@
 
     <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container-fluid">
-      <p>&copy; 2015 Ralph Johnson  <span><a href="http://wasatchsalesandmarketing.com">  Wasatch Sales & Marketing Home Page</span></p>
+      <p>&copy; 2015 Ralph Johnson  <span><a href="#">  spot-ON Merchandising Home Page</span></p>
       </div>
     </div>

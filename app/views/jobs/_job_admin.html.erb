@@ -2,12 +2,14 @@
   <div class="row">
      <div class="col-md-8 col-md-offset-2">
 
-      <div class="add_new">
-        <span><%= button_to 'Add New Job', new_job_path, method: :get, class: 'btn btn-info' %></span><br>        
-        <p><strong>Assign Agents</strong>: List of agents available for <strong>all</strong> shifts of a Job.  Assign agents to complete Jobs there.</p> 
-        <p><strong>Manual Assignment: </strong> Assign Agents, (not listed as available) from dropdown menu.</p> 
-        <p><strong>Remove Agents: </strong> Remove Agents from <i>complete</i> Job.</p> 
-        <p><strong>Calendar: </strong> View Shifts--Assign Partial Jobs--(+Link to <i>Remove</i> Agents from specific shifts).</p> 
+      <div class="container-fluid">
+        <div class="row" id="new-jobs">
+          <div class="col-md-3">
+            <%= button_to 'Add New Job-Project', new_job_path, method: :get, class: 'btn btn-info' %></li>
+          </div>
+          <div class="col-md-3">   
+            <%= button_to 'Add New Job-Recurring', "#", method: :get, class: 'btn btn-info'  %></li>
+          </div>
       </div>
 
       <% @jobs.each do |job| %>

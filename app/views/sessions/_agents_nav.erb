@@ -1,12 +1,6 @@
-<div class="container">
-    <div class="banner">
-      <h4>WSM Field Agents </h4>
-    </div>
-
-
+ <div class="container agent-nav">
     <div class="navbar">   
-      <h3>Contractor: <%= session_handle %></h3>
-        <nav>
+       <nav>
           <ul class="nav nav-tabs">    
           	<li><%= link_to "Home", sessions_path %></li>
             <li><%= link_to "Available Jobs(" + current_agent_available_jobs + ")", jobs_path %></li>
@@ -17,7 +11,8 @@
             <li><%= link_to "Information and Forms", info_forms_path %></li>
             <li><%= link_to "Team Leads", timesheet_days_path %>
             <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-          </ul><br>
+          </ul>
         </nav>   
     </div>
+     <h3>Contractor: <%= session_handle %></h3>
 </div>

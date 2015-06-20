@@ -11,8 +11,7 @@
  * file per style scope.
  *
  
- *= require bootstrap
- *= require bootstrap-datepicker3
+ *= require bootstrap 
  *= require_tree .
  *= require_self
  */
@@ -20,20 +19,22 @@
 html,
 body {
   margin: 0;
-  padding: 0;
+  padding-bottom: 70px;
   font-size: 95%;
-  height: 100%;  
+  background: #EDF4EE
 }
-
+/*
 .page-wrap {
   min-height: 100%;
   margin-bottom: 40px;
-}
+}*/
 
 
+
+/*
  header {
   width: 100%;
-  margin: 0 0 4px 0; 
+  margin: 0; 
   border-radius: 5px;
   padding: 2px 0 15px 0;
   font-family: 'Old Standard TT', serif;
@@ -42,23 +43,56 @@ body {
   font-size: 1.3em;
   background-image: url(<%= asset_path 'mtnpan010428.png' %>);
   background-size: 100%;
- }
+ }*/
 
- header #logo_icon {
-    float: right;
-    clear: left;
+ .jumbotron {
+      position: relative;
+      background-image: url(<%= asset_path "banner-1a.jpg" %>);
+      background-position: center top;
+      margin-top: -10px;
+      width: 100%;
+      height: 40em;             
+      background-size: 100%;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+ #logo_icon {
+    float: left;
+    clear: right;
+    padding-top: 100px;  
   }
 
-#wrappit {
-  min-height: 100%;
-  position: relative;
-}
+  #logo_icon_layout {
+    float: right;
+    clear: left;  
+
+  }
+
+  #logo {    
+    width: 20em;
+    height: 15em;
+  }
+
+  #logo-layout {    
+    width: 10em;
+    height: 7em;
+  }
+
+  #log_in {
+    overflow: scroll;
+  }
 
 
  #page_title {
  		padding: 0 10px 0 5px;
 
  }
+
+/* .admin-nav {
+  background: #E8F4EA;
+  padding-bottom: -3px;
+ }*/
 
  .alert {
   margin-top: 10px;

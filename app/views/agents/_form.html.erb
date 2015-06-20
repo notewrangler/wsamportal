@@ -11,57 +11,48 @@
     </div>
   <% end %>
 
-
-<div class="field">
-        <p>
-          <strong><h4><%= @agent.handle %> </h4></strong>
-        </p>              
-      </div><br>
-
-  <div id="new_agent_form_left">
+ 
     <div class="container">
-        <div class="row">
-           <div class='col-sm-3'>
-              <div class="field">
-                <%= f.label :address %><br>
-                <%= f.text_field :address, class: 'form-control' %>
-              </div>
-              <div class="field">
-                <%= f.label :city %><br>
-                <%= f.text_field :city, class: 'form-control' %>
-              </div>
-              <div class="field">
-                <%= f.label :state %><br>
-                 <%= f.select(:state, options_for_select(us_states, "  ")) %>
-              </div>
-              <div class="field">
-                <%= f.label :zip %><br>
-                <%= f.text_field :zip, class: 'form-control' %>
+      <div class="row">
+         <div class='col-md-4' > 
+            <div class="field">
+              <%= f.label "Name" %>
+              <h4><%= @agent.handle %></h4>
+            </div>          
+            <div class="field">
+              <%= f.label :address %><br>
+              <%= f.text_field :address, class: 'form-control' %>
             </div>
-          </div>
-        </div>
-      </div>
-
-  </div>
-
-  <div id="new_agent_form_middle">
-      <div class="container">
-        <div class="row">
-           <div class='col-sm-3'>
-              <div class="field">
-                <%= f.label :phone %><br>
-                <%= f.text_field :phone, class: 'form-control' %>
-              </div>
-              <div class="field">
-                <%= f.label :email %><br>
-                <%= f.email_field :email, class: 'form-control' %>
-              </div>
+            <div class="field">
+              <%= f.label :city %><br>
+              <%= f.text_field :city, class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= f.label :state %><br>
+               <%= f.select(:state, options_for_select(us_states, "  ")) %>
+            </div>
+            <div class="field">
+              <%= f.label :zip %><br>
+              <%= f.text_field :zip, class: 'form-control' %>
             </div>
         </div>
-      </div>
-  </div>
+    
+        <div class='col-md-4'>
+            <div class="field">
+              <%= f.label :phone %><br>
+              <%= f.text_field :phone, class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= f.label :email %><br>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+            <div class='actions'>
+              <p style="margin-top: 30px"><%= f.submit "Update Agent Profile", class: "btn btn-primary" %></p><br>
+              <%= render current_user_edit_links %>
+            </div>
+        </div>       
 
-  <div class="actions">
-    <%= f.submit "Update Agent Profile", class: "btn btn-primary" %>
-  </div>
+         
+      </div>
+    </div>
 <% end %>

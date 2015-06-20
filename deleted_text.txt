@@ -1,0 +1,8 @@
+</div>
+
+        <div>     
+        <p><strong>Assign Agents</strong>: List of agents available for <strong>all</strong> shifts of a Job.  Assign agents to complete Jobs there.</p> 
+        <p><strong>Manual Assignment: </strong> Assign Agents, (not listed as available) from dropdown menu.</p> 
+        <p><strong>Remove Agents: </strong> Remove Agents from <i>complete</i> Job.</p> 
+        <p><strong>Calendar: </strong> View Shifts--Assign Partial Jobs--(+Link to <i>Remove</i> Agents from specific shifts).</p> 
+      </div>

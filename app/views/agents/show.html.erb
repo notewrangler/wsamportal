@@ -1,44 +1,45 @@
-<h4>Contractor Profile Information</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @agent.last_name %>
-</p>
+      <h4>Contractor Profile Information</h4>
 
-<p>
-  <strong>First name:</strong>
-  <%= @agent.first_name %>
-</p>
+      <p>
+        <strong>Name:</strong>
+        <%= @agent.handle %>
+      </p>      
 
-<p>
-  <strong>Address:</strong>
-  <%= @agent.address %>
-</p>
+      <p>
+        <strong>Address:</strong>
+        <%= @agent.address %>
+      </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @agent.city %>
-</p>
+      <p>
+        <strong>City:</strong>
+        <%= @agent.city %>
+      </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @agent.state %>
-</p>
+      <p>
+        <strong>State:</strong>
+        <%= @agent.state %>
+      </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @agent.zip %>
-</p>
+      <p>
+        <strong>Zip:</strong>
+        <%= @agent.zip %>
+      </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @agent.phone %>
-</p>
+      <p>
+        <strong>Phone:</strong>
+        <%= @agent.phone %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @agent.email %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @agent.email %>
+      </p>
 
-<%= render current_user_show_links %> |
-
+      <%= render current_user_show_links %> |
+    </div> 
+  </div>  
+</div>   

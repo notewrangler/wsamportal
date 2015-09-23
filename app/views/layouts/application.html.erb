@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>spot-ON Merchandising</title>
-  <%= favicon_link_tag 'favicon.ico' %>  
+  <%= favicon_link_tag 'favicon.ico' %>
   <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -13,45 +13,38 @@
 
 			<div class="container">
 				<div id="user_nav">
-								<%= render current_user_nav %> 
-				</div>	
-			</div>			
-			<div class="container">						
+								<%= render current_user_nav %>
+				</div>
+			</div>
+			<div class="container">
 					<div id="logo_icon_layout">
 						<%= image_tag "spot-on_logo.svg", id: "logo-layout" %>
-					</div>					
-			</div>					
+					</div>
+			</div>
 
 				<div class="container">
 					<div class="row">
-			  		<div class="col-md-6 col-md-offset-3">					
+			  		<div class="col-md-6 col-md-offset-3">
 							<% flash.each do |name, msg| %>
-								<span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>													
-							<% end %>	
+								<span><%= content_tag :div, msg, class: "alert alert-#{name}" %></span>
+							<% end %>
 						</div>
-					</div>						
+					</div>
 				</div>
 
-					
-
-			<div class="page-wrap">			
+		<div class="container">
 
 						<%= yield %>
 
-			
-
-
 				<div class="navbar navbar-default navbar-fixed-bottom">
-					<div class="container-fluid">
-					<p>&copy; 2015 Ralph Johnson  <span><a href="#">  spot-ON Merchandising Home Page</span></p>
+					<div class="container">
+					<p>&copy; 2015 Ralph Johnson  <span><%= link_to "spot-ON Merchandising Home Page", "#" %></span></p>
 					</div>
-				</div>	
+				</div>
 
-			</div>	
-		</div>				
-		
+		</div>
+		</div>
+
 	</body>
 
 </html>
-
-

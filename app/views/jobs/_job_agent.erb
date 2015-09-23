@@ -13,10 +13,10 @@
                   <% end %>
             </div> 
 
-         <div class="big_name" %>      
-              <h5><b><i>Job# <%= job.job_num %> | <%= job.project %> | <%= job.store_name %> # <%= job.store_num %></i></b></h5>
-             <h5><b><i><%= job.address %>, <%= job.city %>, <%= job.state %> <%= job.zip %></i></b></h5>
-         </div> <br><br><br>
+           <div class="big_name" %>      
+                <h5><b><i>Job# <%= job.job_num %> | <%= job.project %> | <%= job.store_name %> # <%= job.store_num %></i></b></h5>
+               <h5><b><i><%= job.address %>, <%= job.city %>, <%= job.state %> <%= job.zip %></i></b></h5>
+           </div> <br><br><br>
 
             <div class="headings">
               <ul>         
@@ -27,27 +27,24 @@
                   <li class="w_sat">Sat Shift?</li>
                   <li class="w_sun">Sun Shift?</li>          
               <ul>
-            </div>      
-           
-            
+            </div>
 
-               
-                <div class="job_data">
-                  <ul>            
-                    <li class="w_s_date"><%= job.formatted_start_date %></li>
-                    <li class="w_e_date"><%= job.formatted_end_date %></li>
-                    <li class="w_time"><%= job.formatted_time %></li>
-                    <li class="w_hrs"><%= job.sched_hrs %></li>
-                    <li class="w_sat"><b><%= job.formatted_sat %></b></li>
-                    <li class="w_sun"><b><%= job.formatted_sun %></b></li>
-                  </ul>
-                </div> 
+            <div class="job_data">
+              <ul>            
+                <li class="w_s_date"><%= job.formatted_start_date %></li>
+                <li class="w_e_date"><%= job.formatted_end_date %></li>
+                <li class="w_time"><%= job.formatted_time %></li>
+                <li class="w_hrs"><%= job.sched_hrs %></li>
+                <li class="w_sat"><b><%= job.formatted_sat %></b></li>
+                <li class="w_sun"><b><%= job.formatted_sun %></b></li>
+              </ul>
+            </div> 
                    
-              <div class="agent_links">
-                <b><%= link_to "View Job Shifts", job_calendar_job_path(job) %></b>
-              </div>
+            <div class="agent_links">
+              <b><%= link_to "View Job Shifts", job_calendar_job_path(job) %></b>
+            </div>
             
-            <% end %>
+        <% end %>
     </div>
   </div>  
 </div>

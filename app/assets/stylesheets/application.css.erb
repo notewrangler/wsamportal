@@ -10,12 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- 
- *= require bootstrap 
+
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
- 
+
 html,
 body {
   margin: 0;
@@ -34,7 +34,7 @@ body {
 /*
  header {
   width: 100%;
-  margin: 0; 
+  margin: 0;
   border-radius: 5px;
   padding: 2px 0 15px 0;
   font-family: 'Old Standard TT', serif;
@@ -51,7 +51,7 @@ body {
       background-position: center top;
       margin-top: -10px;
       width: 100%;
-      height: 40em;             
+      height: 40em;
       background-size: 100%;
       background-repeat: no-repeat;
       overflow: hidden;
@@ -60,27 +60,35 @@ body {
  #logo_icon {
     float: left;
     clear: right;
-    padding-top: 100px;  
+    padding-top: 100px;
   }
 
   #logo_icon_layout {
     float: right;
-    clear: left;  
+    clear: left;
 
   }
 
-  #logo {    
+  #logo {
     width: 20em;
     height: 15em;
   }
 
-  #logo-layout {    
+  #logo-layout {
     width: 10em;
     height: 7em;
   }
 
   #log_in {
-    overflow: scroll;
+    display: none;
+  }
+
+  #splash_open {
+      margin: auto;
+  }
+
+  #spash_button {
+    margin: auto;
   }
 
 
@@ -96,10 +104,10 @@ body {
 
  .alert {
   margin-top: 10px;
- } 
+ }
 
 
- 
+
  #new_job_form_left {
  	display: block;
  	float: left;
@@ -113,7 +121,7 @@ body {
   float: left;
   width: 30%;
  }
- 
+
 
  #new_agent_form_left {
 
@@ -151,18 +159,18 @@ body {
       display: flex;
       align-items: center;
       margin: 200px 0 40px 0;
-  }	
+  }
 
- 
- 
+
+
 
 
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/glyphicons-halflings-regular.eot');
-  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
@@ -170,5 +178,3 @@ body {
   content: '';
   display: block;
 }
-
-

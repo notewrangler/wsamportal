@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.3'
 
 
 
@@ -41,6 +41,8 @@ gem 'cancancan'
 gem 'chronic'
 
 
+
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -64,4 +66,3 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

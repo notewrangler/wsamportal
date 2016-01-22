@@ -10,7 +10,7 @@
           <h6><strong><%= "There are no assigned shifts to display" %></strong></h6>
           <% end %>
           </div>
-
+        <div class="headings">
           <ul>
               <li></li>
               <li>Job#</li>
@@ -27,10 +27,10 @@
               <li>Rate</li>
               <li></li>
           </ul>
-
+        </div>
 
         <% @shooks.each do |s| %>
-
+        <div class="job_data">
          <ul>
             <li><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></li>
             <li><%= s.shift.job.job_num %></li>
@@ -47,6 +47,7 @@
             <li><%= number_to_currency(s.jhook.wage_rate) %></li>
             <li><%= link_to "Time Report", new_shook_timesheet_path(s) %></li>
         </ul>
+        </div>
 
         <% end %>
 

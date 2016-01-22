@@ -5,7 +5,7 @@
         <h4>Completed Shifts for: <%= session_handle %></h4>
       </div>
 
-
+      <div class="headings">
         <ul>
             <li>Job#</li>
             <li>Project</li>
@@ -20,14 +20,14 @@
             <li>Hrs</li>
             <li>Wages</li>
         </ul>
-
+      </div>
           <div><% if @shooks.empty? %>
           <h6><strong><%= "There are no completed shifts to display" %></strong></h6>
           <% end %>
           </div>
 
         <% @shooks.each do |s| %>
-
+        <div class="job_data">
           <ul>
               <li><%= s.shift.job.job_num %></li>
               <li><strong><%= s.shift.job.project %></strong></li>
@@ -42,6 +42,7 @@
               <li><%= s.shift.hours %></li>
               <li><%= number_to_currency(s.timesheet.computed_wages) %></li>
           </ul>
+         </div> 
         <% end %>
 
     </div>

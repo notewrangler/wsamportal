@@ -6,10 +6,7 @@
         <div class="row" id="new-jobs">
           <div class="col-md-3">
             <%= button_to 'Add New Job-Project', new_job_path, method: :get, class: 'btn btn-info' %></li>
-          </div>
-          <div class="col-md-3">
-            <%= button_to 'Add New Job-Recurring', "#", method: :get, class: 'btn btn-info'  %></li>
-          </div>
+          </div>          
       </div>
 
       <% @jobs.each do |job| %>

@@ -1,58 +1,59 @@
-<div class='container'>
+<div class='container-fluid'>
+
+
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-9 col-md-offset-1">
       <div class="banner">
         <h4>spot-ON Field Agents</h4>
       </div>
-
-
       <div id="new-user">
         <span><%= button_to 'Add New Agent', new_user_path, method: :get, class: 'btn btn-info' %></span><br>
       </div>
-
-
-      <% @agents.each do |agent| %>
-
-        <div class="big_name" %>
-            
-            <h4><%= agent.first_name %> <%=  agent.last_name %> </h4>
-          </div>  
-              <div class="headings">
-                <ul>
-                  <li id="addy">Address
-                  <li id="town">City</li>
-                  <li id="st">State</li>
-                  <li id="zip">Zip</li>
-                  <li id="ph">Phone</li>
-                  <li id="em">Email</li>
-                  
-                </ul>
-              </div>
-            <br>
-
-            <div class="data">
-                  <ul>
-                    <li id="f_addy"><%= agent.address %></li>
-                    <li id="f_town"><%= agent.city %></li>
-                    <li id="f_st"><%= agent.state %></li>
-                    <li id="f_zip"><%= agent.zip %></li>
-                    <li id="f_ph"><%= number_to_phone(agent.phone, area_code: true) %></li>
-                    <li id="f_em"><%= agent.email %></li>
-                    
-                  </ul> 
-            </div> 
-            <br>   
-           <span class="admin_links">
-            | <%= link_to 'Show', agent %> 
-            | <%= link_to 'Edit Agent Profile', edit_agent_path(agent) %> 
-            | <%= link_to 'Edit Agent Login Credentials', edit_user_path(agent) %>
-            | <%= link_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure?' } %>
-                   
-           </span>
-
-      <% end %>
-
     </div>
   </div>
-</div>        
 
+  <% @agents.each do |agent| %>
+
+    <div class="row">
+      <div class="col-md-9 col-md-offset-1">
+
+          <div class="big_name" %>
+              <h4><%= agent.first_name %> <%=  agent.last_name %> </h4>
+          </div>
+          <div class="headings">
+            <ul>
+              <li id="addy">Address
+              <li id="town">City</li>
+              <li id="st">State</li>
+              <li id="zip">Zip</li>
+              <li id="ph">Phone</li>
+              <li id="email">Email</li>
+            </ul>
+          </div>
+              <br>
+
+          <div class="data">
+            <ul>
+              <li id="f_addy"><%= agent.address %></li>
+              <li id="f_town"><%= agent.city %></li>
+              <li id="f_st"><%= agent.state %></li>
+              <li id="f_zip"><%= agent.zip %></li>
+              <li id="f_ph"><%= number_to_phone(agent.phone, area_code: true) %></li>
+              <li id="f_email"><%= agent.email %></li>
+            </ul>
+          </div>
+              <br>
+          <div>
+            <ul class="admin_links">
+              <li class="agt_admin_btn"><%= button_to 'Show', agent,  method: :get, class: ' btn btn-primary btn-sm  '%></li>
+              <li class="agt_admin_btn"><%= button_to 'Edit Agent Profile', edit_agent_path(agent), method: :get, class: ' btn btn-primary btn-sm '%></li>
+              <li class="agt_admin_btn"><%= button_to 'Edit Agent Login Credentials', edit_user_path(agent), method: :get, class: ' btn btn-primary btn-sm '%></li>
+              <li class="agt_admin_btn"><%= button_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure?' }, class: ' btn btn-danger btn-sm '%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+  </div>

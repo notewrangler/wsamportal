@@ -5,55 +5,54 @@
           <h4>Crew Timesheets for Job # <%= @job.job_num %> -- <%= @job.project %>, <%= @job.store_name %> #<%= @job.store_num %></h4>
         </div><br><br><br>
         <p><b>Check Boxes to OK Agent time reports</b></p>
-  <%= form_tag ok_by_team_lead_path, method: :put do %>
+  <%= form_tag ok_by_team_lead_pali, method: :put do %>
 
       <%= submit_tag 'Submit Updates', class: "btn btn-success" %><br><br>
-	      <% @crew.each do |crewmember| %>  
-	      	<% @timesheets = crewmember.timesheets.submitted %>	      		
-	      	  <% @timesheets.each do |timesheet| %>      
+	      <% @crew.each do |crewmember| %>
+	      	<% @timesheets = crewmember.timesheets.submitted %>
+	      	  <% @timesheets.each do |timesheet| %>
 
 			        <div>
-								<table>
-										<tr>
-											<th class="timesheet-name">Agent</th>											
-											<th>Date</th>
-											<th>Time In</th>
-											<th>Time Out</th>
-											<th>Break Min</th>
-											<th>Hrs</th>
-											<th>Miles</th>
-											<th>Drive Time</th>
-											<th>Expenses</th>
-											<th>Supervisor/Contact</th>
-											<th> </th>
-											<th>Team Lead Comment?</li>
-										</tr>	
 
-										<tr>
-											<td class="timesheet-name"><%= timesheet.agent.handle %></td>											
-											<td><%= timesheet.formatted_date %></td>
-											<td><%= timesheet.formatted_time_in %></td>
-											<td><%= timesheet.formatted_time_out %></td>
-											<td><%= timesheet.break_minutes %></td>
-											<td><%= timesheet.total_hrs %></td>
-											<td><%= timesheet.miles %></td>
-											<td><%= timesheet.drive_time %></td>
-											<td><%= timesheet.expenses %></td>
-											<td><%= timesheet.contact %></td>
+										<ul>
+											<li class="timesheet-name">Agent</li>
+											<li>Date</li>
+											<li>Time In</li>
+											<li>Time Out</li>
+											<li>Break Min</li>
+											<li>Hrs</li>
+											<li>Miles</li>
+											<li>Drive Time</li>
+											<li>Expenses</li>
+											<li>Supervisor/Contact</li>
+											<li> </li>
+											<li>Team Lead Comment?</li>
+										</ul>
+
+										<ul>
+											<li class="timesheet-name"><%= timesheet.agent.handle %></li>
+											<li><%= timesheet.formatted_date %></li>
+											<li><%= timesheet.formatted_time_in %></li>
+											<li><%= timesheet.formatted_time_out %></li>
+											<li><%= timesheet.break_minutes %></li>
+											<li><%= timesheet.total_hrs %></li>
+											<li><%= timesheet.miles %></li>
+											<li><%= timesheet.drive_time %></li>
+											<li><%= timesheet.expenses %></li>
+											<li><%= timesheet.contact %></li>
 											<%= fields_for "timesheets[]", timesheet do |f| %>
-											<td><%= f.label :team_lead_ok, "Team Lead OK" %></i></b> 
-										        	<%= f.check_box :team_lead_ok %></td>
-										  <td><%= f.text_area :team_lead_note %></td>
-										  <% end %> 
-										</tr>									
-								</table>
+											<li><%= f.label :team_lead_ok, "Team Lead OK" %></i></b>
+										        	<%= f.check_box :team_lead_ok %></li>
+										  <li><%= f.text_area :team_lead_note %></li>
+										  <% end %>
+										</ul>
+
 								<p><b><%= "Comments: " if timesheet.comments.present? %></b><%= timesheet.comments %></p>
-						<% end %>		
-			  <% end %>  
+						<% end %>
+			  <% end %>
 			  				<h5><b><%= "Timesheets are up to date" if @timesheets.nil? %></b></h5>
-	  </div> 
-  </div>  
-</div>  
+	  </div>
+  </div>
+</div>
 
-<% end %>      
-
+<% end %>

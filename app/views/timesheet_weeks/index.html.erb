@@ -4,29 +4,29 @@
         <div class="banner">
 					<h4><%= "Agents with Timesheets Pending Approval" %></h4>
 				</div><br><br><br>
-				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>	
+				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>
 				<p><b><%= link_to "View All Timesheets (unsorted)", timesheets_path %></b></p>
-	
-			<div>				 
 
-				<table>
-					<tr>
-						<th class="timesheet-name">Agent Name</th>
-						<th># of Time Reports Pending</th>
-						<th>Start Date</th>
-						<th>End Date</th>
-						<th></th>
-					</tr>
-					<% @agents.each do |agent| %>	
-					<tr>
-						<td class="timesheet-name"><%= agent.handle %></td>
-						<td><%= agent.timesheets.okayed.count %></td>
-						<td><%= agent.timesheets.okayed.first.date %></td>
-						<td><%= agent.timesheets.okayed.last.date %></td>
-						<td><%= link_to "Show Agent Timesheet", weekly_timesheet_path(agent) %></td>
-					</tr>			
-					<% end %>	
-			</table>
+			<div>
+
+
+					<ul>
+						<li class="timesheet-name">Agent Name</li>
+						<li># of Time Reports Pending</li>
+						<li>Start Date</li>
+						<li>End Date</li>
+						<li></li>
+					</ul>
+					<% @agents.each do |agent| %>
+					<ul>
+						<li class="timesheet-name"><%= agent.handle %></li>
+						<li><%= agent.timesheets.okayed.count %></li>
+						<li><%= agent.timesheets.okayed.first.date %></li>
+						<li><%= agent.timesheets.okayed.last.date %></li>
+						<li><%= link_to "Show Agent Timesheet", weekly_timesheet_path(agent) %></li>
+					</ul>
+					<% end %>
+
 		</div><br><br><br><br>
 	</div>
 </div>

@@ -10,49 +10,48 @@
           <h6><strong><%= "There are no assigned shifts to display" %></strong></h6>
           <% end %>
           </div>
-      <table>
-          <tr> 
-              <th></th>             
-              <th>Job#</th>
-              <th>Project</th>            
-              <th>Store Name</th>
-              <th>Store#</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Zip</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Hrs</th>  
-              <th>Rate</th>               
-              <th></th>                   
-          </tr>  
-            
 
-        <% @shooks.each do |s| %>      
+          <ul>
+              <li></li>
+              <li>Job#</li>
+              <li>Project</li>
+              <li>Store Name</li>
+              <li>Store#</li>
+              <li>Address</li>
+              <li>City</li>
+              <li>State</li>
+              <li>Zip</li>
+              <li>Date</li>
+              <li>Time</li>
+              <li>Hrs</li>
+              <li>Rate</li>
+              <li></li>
+          </ul>
 
-         <tr>
-            <td><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></td>            
-            <td><%= s.shift.job.job_num %></td>
-            <td><strong><%= s.shift.job.project %></strong></td>              
-            <td><%= s.shift.job.store_name %></td>
-            <td><%= s.shift.job.store_num %></td>
-            <td><%= s.shift.job.address %></td>
-            <td><%= s.shift.job.city %></td>
-            <td><%= s.shift.job.state %></td>
-            <td><%= s.shift.job.zip %></td>
-            <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
-            <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
-            <td><%= s.shift.hours %></td> 
-            <td><%= number_to_currency(s.jhook.wage_rate) %></td>
-            <td><%= link_to "Time Report", new_shook_timesheet_path(s) %></td>           
-        </tr>    
-              
+
+        <% @shooks.each do |s| %>
+
+         <ul>
+            <li><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></li>
+            <li><%= s.shift.job.job_num %></li>
+            <li><strong><%= s.shift.job.project %></strong></li>
+            <li><%= s.shift.job.store_name %></li>
+            <li><%= s.shift.job.store_num %></li>
+            <li><%= s.shift.job.address %></li>
+            <li><%= s.shift.job.city %></li>
+            <li><%= s.shift.job.state %></li>
+            <li><%= s.shift.job.zip %></li>
+            <li><%= s.date.strftime("%^a %m/%d/%y") %></li>
+            <li><%= s.shift.job.time.strftime("%I:%M%p") %></li>
+            <li><%= s.shift.hours %></li>
+            <li><%= number_to_currency(s.jhook.wage_rate) %></li>
+            <li><%= link_to "Time Report", new_shook_timesheet_path(s) %></li>
+        </ul>
+
         <% end %>
-      </table>
+
       </div>
     </div>
   </div>
 
 <br><br><br><br>
-

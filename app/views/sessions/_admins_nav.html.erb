@@ -1,17 +1,16 @@
-<div class="container "> 
-  <div class="navbar">            
-    <nav>      
-        <ul class="nav nav-tabs">    
-          <li><%= link_to "Home", sessions_path %></li>
-          <li><%= link_to "View Agents", agents_path %></li> 
-          <li><%= link_to "JOBS-View/Add/Assign ", jobs_path %></li>
-          <li><%= link_to "Assign Loose Shifts", shifts_path %></li>
-          <li><%= link_to "View Agent Timesheets", timesheet_weeks_path %></li>
-          <li><%= link_to "Information and Forms", info_forms_path %></li>
-          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-        </ul>  
-    </nav> 
-   </div>    
+<div class="container ">
+  <div class="navbar">
+    <nav>
+        <ul class="nav nav-tabs">
+          <li class="navigation-tab"><%= link_to "Home", sessions_path %></li>
+          <li class="navigation-tab"><%= link_to "Agents", agents_path %></li>
+          <li class="navigation-tab"><%= link_to "Manage Jobs ", jobs_path %></li>
+          <li class="navigation-tab"><%= link_to "Loose Shifts", shifts_path %></li>
+          <li class="navigation-tab"><%= link_to "Agent Timesheets", timesheet_weeks_path %></li>
+          <li class="navigation-tab"><%= link_to "Info and Forms", info_forms_path %></li>
+          <li class="navigation-tab"><%= link_to "Log Out", logout_path, method: :delete %></li>
+        </ul>
+    </nav>
+   </div>
   <h4>Administrator: <%= session_handle %></h4>
-</div>  <!-- /.container --> 
-  
+</div>  <!-- /.container -->

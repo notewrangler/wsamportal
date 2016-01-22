@@ -6,42 +6,42 @@
       </div>
 
       <% @shooks.each do |s| %>
-        <table>
-          <tr>
-          		<th>Job Number</th>
-              <th>Project</th>        
-              <th>StoreName</th>
-              <th>#</th>              
-              <th>City</th>
-              <th>State</th>              
-              <th>Agent</th> 
-              <th>Date</th>
-              <th>TimeIn</th> 
-              <th>TimeOut</th>
-              <th>BreakMin</th>    
-              <th>Hrs</th>
-              <th>Supervisor/Store Contact</th>         
-          </tr>      
-          <tr>
-            	<td><%= s.shift.job.job_num %></td>
-              <td><strong><%= s.shift.job.project %></strong></td>        
-              <td><%= s.shift.job.store_name %></td>
-              <td><%= s.shift.job.store_num %></td>              
-              <td><%= s.shift.job.city %></td>
-              <td><%= s.shift.job.state %></td>              
-              <td><strong><%= s.agent.handle %></strong></td> 
-              <td><strong><%= s.formatted_date %></strong></td> 
-              <td><strong><%= s.timesheet.formatted_time_in %></strong></td> 
-              <td><strong><%= s.timesheet.formatted_time_out %></strong></td>
-              <td><strong><%= s.timesheet.break_minutes %></strong></td>       
-              <td><strong><%= s.timesheet.total_hrs %></strong></td>
-              <td><%= s.timesheet.contact %></td> 
-         </tr>           
-        </table>
-             <p><b>On-Site @time: </b><%= s.formatted_sign_in %><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %> 
+
+          <ul>
+          		<li>Job Number</li>
+              <li>Project</li>
+              <li>StoreName</li>
+              <li>#</li>
+              <li>City</li>
+              <li>State</li>
+              <li>Agent</li>
+              <li>Date</li>
+              <li>TimeIn</li>
+              <li>TimeOut</li>
+              <li>BreakMin</li>
+              <li>Hrs</li>
+              <li>Supervisor/Store Contact</li>
+          </ul>
+          <ul>
+            	<li><%= s.shift.job.job_num %></li>
+              <li><strong><%= s.shift.job.project %></strong></li>
+              <li><%= s.shift.job.store_name %></li>
+              <li><%= s.shift.job.store_num %></li>
+              <li><%= s.shift.job.city %></li>
+              <li><%= s.shift.job.state %></li>
+              <li><strong><%= s.agent.handle %></strong></li>
+              <li><strong><%= s.formatted_date %></strong></li>
+              <li><strong><%= s.timesheet.formatted_time_in %></strong></li>
+              <li><strong><%= s.timesheet.formatted_time_out %></strong></li>
+              <li><strong><%= s.timesheet.break_minutes %></strong></li>
+              <li><strong><%= s.timesheet.total_hrs %></strong></li>
+              <li><%= s.timesheet.contact %></li>
+         </ul>
+
+             <p><b>On-Site @time: </b><%= s.formatted_sign_in %><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %>
                   <b><%= "  ||   Mileage: " if s.timesheet.miles.present? %></b><%= s.timesheet.miles %><b><%= " | Drive Time:" if s.timesheet.drive_time.present? %></b><%= s.timesheet.drive_time %><b><%= " | Expenses: " if s.timesheet.expenses.present? %></b><%= number_to_currency s.timesheet.expenses %></p>
-             <p><%= "Comments:" if s.timesheet.comments.present? %><%= s.timesheet.comments %> 
-          
+             <p><%= "Comments:" if s.timesheet.comments.present? %><%= s.timesheet.comments %>
+
       <% end %>
 
         <div><% if @shooks.empty? %>

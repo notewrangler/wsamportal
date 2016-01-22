@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	
+
 }
 
 div.banner {
@@ -13,7 +13,7 @@ div.banner {
 	background-color: #80BF88;
 	}
 
-#new-jobs {	
+#new-jobs {
 	margin-top: 10px;
 }
 
@@ -28,66 +28,74 @@ div.big_name {
 	clear: both;
 }
 
-div.headings ul  {
+.headings ul  {
 	display: block;
 	list-style-type: none;
 	background-color: #D9D7D7;
 	width: 100%;
 	float: left;
-	
-}	
+
+}
 
 .headings {
-	font-size: 0.8em;
+	font-size: 0.7em;
 	font-weight: bold;
 }
 
-div.job_data ul {
+.job_data ul {
 	display: block;
-	list-style-type: none;
+	list-style: none;
 	width: 100%;
 	float: left;
-	font-size: 0.7em;
 	margin-top: 6px;
 	}
 
-		.j_num   { width:  7%; text-align: left;	list-style-type: none;	display: inline-block; margin-right: 5px; }
+	.job_data li {
+		font-size: 0.8em;
+		list-style: none;
+		text-align: left;
+		display: inline-block;
+	}
+
+		.j_num   { width:  8%; text-align: left;	list-style-type: none;	display: inline-block; margin-right: 6px; }
 
 		.pj      { width:  10%; text-align: left;	list-style-type: none;  display: inline-block;	}
 
 		.s_name  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
-		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}		
+		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
 		.s_addy  { width:  13%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_city  { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_state { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_zip   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;  }
 
-		.w_s_date {	width: 8%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 3em; }
-
-		.w_e_date {	width: 8%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 3em;	}
 
 
-		.w_time  { width:  8%;	text-align: left;	list-style-type: none;  display: inline-block; margin-right: 3em;	}
+		.w_s_date {	width: 7%; margin-right: 3em; }
 
-		.w_hrs   { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 1em;	}
+		.w_e_date {	width: 7%; margin-right: 3em;	}
 
-		.w_man   { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 1em;	}
 
-		.w_agts  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 1em; }
+		.w_time  { width:  7%;	text-align: left;	list-style-type: none;  display: inline-block; margin-right: 3em;	}
 
-		.w_partial { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 1em; }
+		.w_hrs   { width:  7%; margin-right: 1em;	}
 
-		.w_assd  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block; margin-right: 1em; }
+		.w_man   { width:  7%; margin-right: 1em;	}
 
-		.w_sat   { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;  }
+		.w_agts  { width:  7%; margin-right: 1em; }
 
-		.w_sun   { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-	
+		.w_partial { width:  7%; margin-right: 1em; }
+
+		.w_assd  { width:  7%; margin-right: 1em; }
+
+		.w_sat   { width:  9%;  }
+
+		.w_sun   { width:  9%;	}
+
 
 // div.agent_links {
 // 	border-bottom: 1px solid #909692;
@@ -100,33 +108,34 @@ div.job_data ul {
 div.j_admin_links ul {
 	display: block;
 	text-decoration: none;
+	font-size: 0.8rem;
 	width: 100%;
-	float: left;	
+	float: left;
 }
 
 
 .f_edit {
-	width: 6%;
+	// width: 6%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
 
 .f_delete {
-	width: 7%;
+	// width: 7%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
 
 .jhook_feed {
-	width: 12%;
+	// width: 12%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
 .jhook_unfeed {
-	width: 14%;
+	// width: 14%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
@@ -134,26 +143,21 @@ div.j_admin_links ul {
 
 
 .team_lead {
-	width: 15%;
+	// width: 15%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
 
 .manual {
-	width: 16%;
+	// width: 16%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
 .calendr {
-	width: 15%;
+	// width: 15%;
 	text-align: left;
 	list-style-type: none;
 	display: inline-block;
 }
-
-
-
-
-

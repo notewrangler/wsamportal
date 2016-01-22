@@ -12,10 +12,10 @@
       </ul>
     </div>
 
-  <% end %><%= f.submit "Save Job", class: "btn btn-success" %><br><br>    
-      
-  
-   
+  <% end %><%= f.submit "Save Job", class: "btn btn-success" %><br><br>
+
+
+
   <div class="row">
     <div class="col-md-4">
       <div class="field">
@@ -48,45 +48,50 @@
       </div>
     </div>
 
-      <div class="col-md-4">            
+      <div class="col-md-4">
         <div class="form-group has-feedback">
-            <%= f.label :start_date, "Start Date" %>                      
-            <%= f.date_field :start_date, :value => @job.start_date.try(:strftime, "%Y/%m/%d"), class: 'form-control' %> <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
-        </div>         
-        
+            <%= f.label :start_date, "Start Date" %>
+            <%= f.date_field :start_date, :value => @job.start_date.try(:strftime, "%Y/%m/%d"), class: 'form-control datepicker' %> <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+        </div>
+
         <div class="form-group has-feedback">
-            <%= f.label :end_date, "End Date" %>                     
-            <%= f.date_field :end_date, :value => @job.end_date.try(:strftime, "%Y/%m/%d"), class: 'form-control' %> <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
-        </div>          
-        <div class="form-group">          
+            <%= f.label :end_date, "End Date" %>
+            <%= f.date_field :end_date, :value => @job.end_date.try(:strftime, "%Y/%m/%d"), class: 'form-control datepicker' %> <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+        </div>
+        <div class="form-group">
           <%= f.check_box :sat %>
           <%= f.label :sat,"Sat shift? (leave blank if N/A)" %>
-        </div>        
-        <div class="form-group">         
+        </div>
+        <div class="form-group">
           <%= f.check_box :sun %>
           <%= f.label :sun, "Sun shift? (leave blank if N/A)" %>
-        </div>  
-        <div class="form-group">  
+        </div>
+        <div class="form-group">
           <%= f.label :time, "Start Time (hh:mm:AM/PM)" %><br>
           <%= f.text_field :time, :value => @job.time.try(:strftime, "%I:%M%p"), class: 'form-control' %>
-        </div>         
-         <div class="form-group">  
+        </div>
+         <div class="form-group">
               <%= f.label :timezone, "Time Zone" %><br>
               <%= f.select(:timezone, options_for_select(us_zones_widget, @job.timezone)) %>
-         </div>         
+         </div>
       </div>
 
-      <div class="col-md-4">                
-             <div class="form-group">  
+      <div class="col-md-4">
+             <div class="form-group">
                   <%= f.label :sched_hrs, "Work Hrs per Day" %><br>
                   <%= f.number_field :sched_hrs, class: 'form-control' %>
-              </div>        
-               <div class="form-group">  
+              </div>
+               <div class="form-group">
                   <%= f.label :manpower, "Number of Agents Needed" %><br>
                   <%= f.number_field :manpower, class: 'form-control' %>
               </div>
       </div>
-  </div>  
+  </div>
 </div>
 
 <% end %>
+<script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  })
+</script>

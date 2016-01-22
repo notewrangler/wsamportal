@@ -4,45 +4,37 @@
         <div class="banner">
 					<h4><%= "Active Jobs For Team Lead: " %><%= current_agent.handle %></h4>
 				</div><br><br><br>
-				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>	
-	
+				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>
+
 			<div>
-				<table>
-						<tr>
-							<th>Job #</th>
-							<th>Project</th>
-							<th>Store</th>
-							<th>Store #</th>
-							<th>StartDate</th>
-							<th>EndDate</th>
-							<th>Agents</th>
-							<th> </th>
-						<tr>	
+
+						<ul>
+							<li>Job #</li>
+							<li>Project</li>
+							<li>Store</li>
+							<li>Store #</li>
+							<li>StartDate</li>
+							<li>EndDate</li>
+							<li>Agents</li>
+							<li> </li>
+						<ul>
 
 					<% @jobs.each do |job| %>
 
-						<tr>
-							<td><%= job.job_num %></td>
-							<td><%= job.project %></td>
-							<td><%= job.store_name%></td>
-							<td><%= job.store_num %></td>
-							<td><%= job.start_date%></td>
-							<td><%= job.end_date%></td>
-							<td><%= job.jhooks.assigned.count%></td>
-							<td><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></td>
-						<tr>				
+						<ul>
+							<li><%= job.job_num %></li>
+							<li><%= job.project %></li>
+							<li><%= job.store_name%></li>
+							<li><%= job.store_num %></li>
+							<li><%= job.start_date%></li>
+							<li><%= job.end_date%></li>
+							<li><%= job.jhooks.assigned.count%></li>
+							<li><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></li>
+						<ul>
 					<% end %>
-				</table>
+
 
 			</div><br><br><br><br>
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-

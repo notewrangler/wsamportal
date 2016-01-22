@@ -9,7 +9,7 @@ div.banner {
 	float: left;
 	clear: right;
 	background-color: #00FF00;
-	padding-left: 10px;	
+	padding-left: 10px;
 	border-radius: 5px;
 }
 
@@ -41,121 +41,65 @@ div.big_name  h4 {
 	font-family: "Times New Roman", Georgia, Serif;
 	float: left;
 	clear: both;
-	font-size: 1.3em;		
+	font-size: 1.3em;
 }
 
 div.headings {
 	background-color: #eee2e2;
 }
 
-div.headings ul {
+.headings ul {
 	display: block;
 	width: 100%;
-	float: left;
-	clear: right;
-	
-}
 
-
-#addy {
-	width: 20%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
-	display: inline-block;
 
 }
-
-#town {
-	width: 12%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
+.headings li {
+	font-size: 1em;
+	list-style: none;
 	display: inline-block;
 }
-
-#st {
-	width: 4%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
-	display: inline-block;
-}
-#zip {
-	width: 6%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
-	display: inline-block;
-}
-#ph {
-	width: 12%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
-	display: inline-block;
-}
-#em {
-	width: 20%;
-	font-size: 0.8em;
-	font_weight: 900;
-	list-style-type: none;
-	display: inline-block;
-}
-
-
-div.data ul {
+.data ul {
 	display: block;
 	width: 100%;
-	float: left;
-	clear: both;
-	
+
 }
 
-#f_addy {
-	width: 20%;
-	font_weight: bold;
-	list-style-type: none;
-	display: inline-block;
-}
-
-#f_town {
-	width: 12%;
-	font_weight: bold;
-	list-style-type: none;
-	display: inline-block;
-}
-
-#f_st {
-	width: 4%;
-	font_weight: bold;
-	list-style-type: none;
-	display: inline-block;
-}
-#f_zip {
-	width: 6%;
-	font_weight: bold;
-	list-style-type: none;
-	display: inline-block;
-}
-#f_ph {
-	width: 12%;
-	font_weight: bold;
-	list-style-type: none;
-	display: inline-block;
-}
-#f_em {
-	width: 20%;
-	font_weight: bold;
-	list-style-type: none;
+.data li {
+	font-size: 0.8em;
+	list-style: none;
 	display: inline-block;
 }
 
 
-span.admin_links {
-	display: block;
+#addy { min-width: 14.8em; }
+#f_addy {min-width: 14em; }
+
+#town { min-width: 9.3em; }
+#f_town {min-width: 9em;}
+
+#st { min-width: 4.5em;;  }
+#f_st { min-width: 4em; }
+
+
+#zip { min-width: 5em;}
+#f_zip { min-width: 5em; }
+
+#ph { min-width: 8em;}
+#f_ph { min-width: 7em; }
+
+#email {min-width: 10em;}
+#f_email { min-width: 8em; }
+
+
+
+.admin_links {
+	display: inline-block;
+	list-style: none;
 	width: 100%;
-	float: left;
-	clear: both;
 	border-bottom: 1px solid #eee;
+}
+.agt_admin_btn {
+	display: inline-block;
+	margin-right: 3px;
 }

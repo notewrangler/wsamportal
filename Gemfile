@@ -39,7 +39,7 @@ gem 'cancancan'
 
 gem 'chronic'
 
-
+# gem 'materialize-sass'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

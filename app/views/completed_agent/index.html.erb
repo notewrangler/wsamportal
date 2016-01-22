@@ -5,50 +5,45 @@
         <h4>Completed Shifts for: <%= session_handle %></h4>
       </div>
 
-      <table>
-        <tr>
-            <th>Job#</th>
-            <th>Project</th>            
-            <th>Store Name</th>
-            <th>Store#</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Hrs</th>
-            <th>Wages</th>         
-        </tr>  
+
+        <ul>
+            <li>Job#</li>
+            <li>Project</li>
+            <li>Store Name</li>
+            <li>Store#</li>
+            <li>Address</li>
+            <li>City</li>
+            <li>State</li>
+            <li>Zip</li>
+            <li>Date</li>
+            <li>Time</li>
+            <li>Hrs</li>
+            <li>Wages</li>
+        </ul>
 
           <div><% if @shooks.empty? %>
           <h6><strong><%= "There are no completed shifts to display" %></strong></h6>
           <% end %>
-          </div>  
+          </div>
 
-        <% @shooks.each do |s| %>      
+        <% @shooks.each do |s| %>
 
-          <tr>
-              <td><%= s.shift.job.job_num %></td>
-              <td><strong><%= s.shift.job.project %></strong></td>              
-              <td><%= s.shift.job.store_name %></td>
-              <td><%= s.shift.job.store_num %></td>
-              <td><%= s.shift.job.address %></td>
-              <td><%= s.shift.job.city %></td>
-              <td><%= s.shift.job.state %></td>
-              <td><%= s.shift.job.zip %></td>
-              <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
-              <td><%= s.shift.job.time.strftime("%I:%M%p") %></td>
-              <td><%= s.shift.hours %></td>
-              <td><%= number_to_currency(s.timesheet.computed_wages) %></td>
-          </tr>     
+          <ul>
+              <li><%= s.shift.job.job_num %></li>
+              <li><strong><%= s.shift.job.project %></strong></li>
+              <li><%= s.shift.job.store_name %></li>
+              <li><%= s.shift.job.store_num %></li>
+              <li><%= s.shift.job.address %></li>
+              <li><%= s.shift.job.city %></li>
+              <li><%= s.shift.job.state %></li>
+              <li><%= s.shift.job.zip %></li>
+              <li><%= s.date.strftime("%^a %m/%d/%y") %></li>
+              <li><%= s.shift.job.time.strftime("%I:%M%p") %></li>
+              <li><%= s.shift.hours %></li>
+              <li><%= number_to_currency(s.timesheet.computed_wages) %></li>
+          </ul>
         <% end %>
-      </table>
+
     </div>
   </div>
-</div> 
-
-
-   
-
-
+</div>

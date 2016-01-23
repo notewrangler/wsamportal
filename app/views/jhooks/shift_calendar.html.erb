@@ -12,7 +12,7 @@
             <%= link_to "<", date: @date.prev_month %>
             <%= @date.strftime("%B %Y") %>
             <%= link_to ">", date: @date.next_month %>
-            <span><%= check_box_tag 'checkall', id="checkall" %>Check All</span>
+            
           </h2>
           <p><strong>Job shifts may overlap into following month (use arrows to view)</strong></p>
           <%= calendar @date do |date| %>
@@ -29,11 +29,4 @@
       </div>
 
 <% end %>
-<script type="text/JavaScript">
-  $(document).ready(function(){
-    $('body').on('click', 'checkall'){
-      $('.checkdate').check();
-    }
 
-  });
-</script>

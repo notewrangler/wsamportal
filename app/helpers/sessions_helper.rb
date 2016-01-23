@@ -45,15 +45,7 @@ def flash_class(type)
 
 
 
-  def working_status
-    s = Shook.assigned.select{ |s| s.agent_id == current_agent.id && s.date == Date.today} 
-      if @shook 
-        'sessions/working_today(s)'
-      else
-        'sessions/not_working_today'
-      end      
-  end
-
+ 
   
   def session_handle
     current_user.first_name + " " + current_user.last_name

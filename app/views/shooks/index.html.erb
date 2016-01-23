@@ -13,7 +13,6 @@
         <div class="headings">
           <ul>
               <li class="si_link"></li>
-              <li class="j_num">Job#</li>
               <li class="pj">Project</li>
               <li class="s_name">Store Name</li>
               <li class="s_num">Store#</li>
@@ -33,7 +32,6 @@
         <div class="job_data">
          <ul>
             <li class="si_link"><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></li>
-            <li class="j_num">J><%= s.shift.job.job_num %></li>
             <li class="pj"><strong><%= s.shift.job.project %></strong></li>
             <li class="s_name">><%= s.shift.job.store_name %></li>
             <li class="s_num"><%= s.shift.job.store_num %></li>

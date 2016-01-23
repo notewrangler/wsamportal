@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def index
+    @today = Shook.assigned.select(['agent_id = ? and date = ?', current_agent.id,  Date.today]).pluck(:id)
+    
   end
 
   

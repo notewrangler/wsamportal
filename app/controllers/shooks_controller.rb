@@ -10,7 +10,7 @@ class ShooksController < ApplicationController
 
 
 	def index
-		@shooks = Shook.assigned.where(agent_id: current_agent.id ).order(:date)		
+		@shooks = Shook.assigned.where(agent_id: current_agent.id ).order(:date)	
 	end	
 
 	def update

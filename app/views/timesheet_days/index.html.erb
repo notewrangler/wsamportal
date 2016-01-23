@@ -9,27 +9,27 @@
 			<div>
 					<div class="headings">
 						<ul>
-							<li>Job #</li>
-							<li>Project</li>
-							<li>Store</li>
-							<li>Store #</li>
-							<li>StartDate</li>
-							<li>EndDate</li>
-							<li>Agents</li>
-							<li> </li>
+							<li class="j_num">Job #</li>
+							<li class="pj">Project</li>
+							<li class="s_name">Store</li>
+							<li class="s_num">Store #</li>
+							<li class="w_start_date">StartDate</li>
+							<li class="w_end_date">EndDate</li>
+							<li class="w_agts">Agents</li>
+							<li class="tl_link"> </li>
 						</ul>
 					</div>
 					<% @jobs.each do |job| %>
 					<div class="job_data">
 						<ul>
-							<li><%= job.job_num %></li>
-							<li><%= job.project %></li>
-							<li><%= job.store_name%></li>
-							<li><%= job.store_num %></li>
-							<li><%= job.start_date%></li>
-							<li><%= job.end_date%></li>
-							<li><%= job.jhooks.assigned.count%></li>
-							<li><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></li>
+							<li class="j_num"><%= job.job_num %></li>
+							<li class="pj"><%= job.project %></li>
+							<li class="s_name"><%= job.store_name%></li>
+							<li class="s_num"><%= job.store_num %></li>
+							<li class="w_start_date"><%= job.start_date%></li>
+							<li class="w_end_date"><%= job.end_date%></li>
+							<li class="w_agts"><%= job.jhooks.assigned.count%></li>
+							<li class="tl_link"><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></li>
 						</ul>
 					</div>	
 					<% end %>

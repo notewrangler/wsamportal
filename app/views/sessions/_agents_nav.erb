@@ -16,7 +16,5 @@
     </div>
        <h3>Contractor: <%= session_handle %></h3>
        <% if !@today.nil? %>
-            <%= link_to 'You Have An Assigned Shift Today--Go to Sign-In', sign_in_page_shook_path(@today), method: :get,  class: 'btn btn-primary', id: 'you-have-work' %>
+            <%= link_to 'You Have An Assigned Shift Today--Click Here to Proceed to Sign-In', sign_in_page_shook_path(@today), method: :get,  class: 'btn btn-primary', id: 'you-have-work' %>
         <% end %>
-            
-     

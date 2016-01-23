@@ -42,9 +42,6 @@ def flash_class(type)
   def current_agent_available_jobs
     Job.all.select { |j| !j.agents.include?(current_agent) && j.start_date >= Date.today }.count.to_s
   end
-
-
-
  
   
   def session_handle

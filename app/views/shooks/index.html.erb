@@ -12,19 +12,19 @@
           </div>
         <div class="headings">
           <ul>
-              <li></li>
-              <li>Job#</li>
-              <li>Project</li>
-              <li>Store Name</li>
-              <li>Store#</li>
-              <li>Address</li>
-              <li>City</li>
-              <li>State</li>
-              <li>Zip</li>
-              <li>Date</li>
-              <li>Time</li>
-              <li>Hrs</li>
-              <li>Rate</li>
+              <li class="si_link"></li>
+              <li class="j_num">Job#</li>
+              <li class="pj">Project</li>
+              <li class="s_name">Store Name</li>
+              <li class="s_num">Store#</li>
+              <li class="s_addy">Address</li>
+              <li class="s_city">City</li>
+              <li class="s_state">State</li>
+              <li class="s_zip">Zip</li>
+              <li class="w_date">Date</li>
+              <li class="w_time">Time</li>
+              <li class="w_hrs">Hrs</li>
+              <li class="w_rate">Rate</li>
               <li></li>
           </ul>
         </div>
@@ -32,19 +32,19 @@
         <% @shooks.each do |s| %>
         <div class="job_data">
          <ul>
-            <li><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></li>
-            <li><%= s.shift.job.job_num %></li>
-            <li><strong><%= s.shift.job.project %></strong></li>
-            <li><%= s.shift.job.store_name %></li>
-            <li><%= s.shift.job.store_num %></li>
-            <li><%= s.shift.job.address %></li>
-            <li><%= s.shift.job.city %></li>
-            <li><%= s.shift.job.state %></li>
-            <li><%= s.shift.job.zip %></li>
-            <li><%= s.date.strftime("%^a %m/%d/%y") %></li>
-            <li><%= s.shift.job.time.strftime("%I:%M%p") %></li>
-            <li><%= s.shift.hours %></li>
-            <li><%= number_to_currency(s.jhook.wage_rate) %></li>
+            <li class="si_link"><b><%= link_to "Sign In", sign_in_page_shook_path(s) if !s.signed_in? %></b></li>
+            <li class="j_num">J><%= s.shift.job.job_num %></li>
+            <li class="pj"><strong><%= s.shift.job.project %></strong></li>
+            <li class="s_name">><%= s.shift.job.store_name %></li>
+            <li class="s_num"><%= s.shift.job.store_num %></li>
+            <li class="s_addy"><%= s.shift.job.address %></li>
+            <li class="s_city"><%= s.shift.job.city %></li>
+            <li class="s_state"><%= s.shift.job.state %></li>
+            <li class="s_zip"><%= s.shift.job.zip %></li>
+            <li class="w_date"><%= s.date.strftime("%^a %m/%d/%y") %></li>
+            <li class="w_time"><%= s.shift.job.time.strftime("%I:%M%p") %></li>
+            <li class="w_hrs"><%= s.shift.hours %></li>
+            <li class="w_rate"><%= number_to_currency(s.jhook.wage_rate) %></li>
             <li><%= link_to "Time Report", new_shook_timesheet_path(s) %></li>
         </ul>
         </div>

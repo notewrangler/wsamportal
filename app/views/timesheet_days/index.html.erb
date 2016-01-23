@@ -7,7 +7,7 @@
 				<p><b><%= link_to "Back to Home Page", sessions_path %></b></p>
 
 			<div>
-
+					<div class="headings">
 						<ul>
 							<li>Job #</li>
 							<li>Project</li>
@@ -17,10 +17,10 @@
 							<li>EndDate</li>
 							<li>Agents</li>
 							<li> </li>
-						<ul>
-
+						</ul>
+					</div>
 					<% @jobs.each do |job| %>
-
+					<div class="job_data">
 						<ul>
 							<li><%= job.job_num %></li>
 							<li><%= job.project %></li>
@@ -30,9 +30,10 @@
 							<li><%= job.end_date%></li>
 							<li><%= job.jhooks.assigned.count%></li>
 							<li><%= link_to "Crew Timesheets", team_lead_ok_path(job) %></li>
-						<ul>
+						</ul>
+					</div>	
 					<% end %>
-
+					
 
 			</div><br><br><br><br>
 		</div>

@@ -6,42 +6,44 @@
       </div>
 
       <% @shooks.each do |s| %>
+        <div class=headings>
 
           <ul>
-          		<li>Job Number</li>
-              <li>Project</li>
-              <li>StoreName</li>
-              <li>#</li>
-              <li>City</li>
-              <li>State</li>
-              <li>Agent</li>
-              <li>Date</li>
-              <li>TimeIn</li>
-              <li>TimeOut</li>
-              <li>BreakMin</li>
-              <li>Hrs</li>
-              <li>Supervisor/Store Contact</li>
+              <li class="pj">Project</li>
+              <li class="s_name">StoreName</li>
+              <li class="s_num">#</li>
+              <li class="s_city">City</li>
+              <li class="s_state">State</li>
+              <li class="agt">Agent</li>
+              <li class="w_date">Date</li>
+              <li class="w_in">TimeIn</li>
+              <li class="w_out">TimeOut</li>
+              <li class="w_break">BreakMin</li>
+              <li class="w_hrs">Hrs</li>
+              <li class="w_contact">Supervisor/Store Contact</li>
           </ul>
+        </div>
+        <div class="job_data">
           <ul>
-            	<li><%= s.shift.job.job_num %></li>
-              <li><strong><%= s.shift.job.project %></strong></li>
-              <li><%= s.shift.job.store_name %></li>
-              <li><%= s.shift.job.store_num %></li>
-              <li><%= s.shift.job.city %></li>
-              <li><%= s.shift.job.state %></li>
-              <li><strong><%= s.agent.handle %></strong></li>
-              <li><strong><%= s.formatted_date %></strong></li>
-              <li><strong><%= s.timesheet.formatted_time_in %></strong></li>
-              <li><strong><%= s.timesheet.formatted_time_out %></strong></li>
-              <li><strong><%= s.timesheet.break_minutes %></strong></li>
-              <li><strong><%= s.timesheet.total_hrs %></strong></li>
-              <li><%= s.timesheet.contact %></li>
+              <li class="pj"><strong><%= s.shift.job.project %></strong></li>
+              <li class="s_name"><%= s.shift.job.store_name %></li>
+              <li class="s_num"><%= s.shift.job.store_num %></li>
+              <li class="s_city"><%= s.shift.job.city %></li>
+              <li class="s_state"><%= s.shift.job.state %></li>
+              <li class="agt"><strong><%= s.agent.handle %></strong></li>
+              <li class="w_date"><strong><%= s.formatted_date %></strong></li>
+              <li class="w_in"><strong><%= s.timesheet.formatted_time_in %></strong></li>
+              <li class="w_out"><strong><%= s.timesheet.formatted_time_out %></strong></li>
+              <li class="w_break"><strong><%= s.timesheet.break_minutes %></strong></li>
+              <li class="w_hrs"><strong><%= s.timesheet.total_hrs %></strong></li>
+              <li class="w_contact"><%= s.timesheet.contact %></li>
          </ul>
+
 
              <p><b>On-Site @time: </b><%= s.formatted_sign_in %><b>Time Report Submitted:  </b><%= s.timesheet.formatted_report_time %>
                   <b><%= "  ||   Mileage: " if s.timesheet.miles.present? %></b><%= s.timesheet.miles %><b><%= " | Drive Time:" if s.timesheet.drive_time.present? %></b><%= s.timesheet.drive_time %><b><%= " | Expenses: " if s.timesheet.expenses.present? %></b><%= number_to_currency s.timesheet.expenses %></p>
              <p><%= "Comments:" if s.timesheet.comments.present? %><%= s.timesheet.comments %>
-
+       </div>
       <% end %>
 
         <div><% if @shooks.empty? %>

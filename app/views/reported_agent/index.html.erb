@@ -12,46 +12,50 @@
 
       <% @shooks.each do |s| %>  
 
-      <table>
-        <tr>           
-            <th>Project</th>            
-            <th>Store Name</th>
-            <th>Store#</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>            
-            <th>Date</th>
-            <th>Time In</th>
-            <th>Time Out</th>
-            <th>Break Min</th>            
-            <th>Hrs</th>                   
-        </tr>            
-
-        <tr>
-              <td><strong><%= s.shift.job.project %></strong></td>              
-              <td><%= s.shift.job.store_name %></td>
-              <td><%= s.shift.job.store_num %></td>
-              <td><%= s.shift.job.address %></td>
-              <td><%= s.shift.job.city %></td>
-              <td><%= s.shift.job.state %></td>              
-              <td><%= s.date.strftime("%^a %m/%d/%y") %></td>
-              <td><%= s.timesheet.time_in.strftime("%I:%M %p") %></li> 
-              <td><%= s.timesheet.time_out.strftime("%I:%M %p") %></li>
-              <td><%= s.timesheet.break_minutes %></li>               
-              <td><%= s.timesheet.total_hrs  %></td>              
-          </tr> 
+      <div class="headings">
+        <ul>           
+            <li class="pj">Project</li>            
+            <li class="s_name">Store Name</li>
+            <li class="s_num">Store#</li>
+            <li class="s_addy">Address</li>
+            <li class="s_city">City</li>
+            <li class="s_state">State</li>            
+            <li class="w_date">Date</li>
+            <li class="w_in">Time In</li>
+            <li class="w_out">Time Out</li>
+            <li class="w_break">Break Min</li>            
+            <li class="w_hrs">Hrs</li>                   
+        </ul>            
+      </div>
+      <div class="job_data">
+        <ul>
+              <li class="pj"><strong><%= s.shift.job.project %></strong></li>              
+              <li class="s_name"><%= s.shift.job.store_name %></li>
+              <li class="s_num"><%= s.shift.job.store_num %></li>
+              <li class="s_addy"><%= s.shift.job.address %></li>
+              <li class="s_city"><%= s.shift.job.city %></li>
+              <li class="s_state"><%= s.shift.job.state %></li>              
+              <li class="w_date"><%= s.date.strftime("%^a %m/%d/%y") %></li>
+              <li class="w_in"><%= s.timesheet.time_in.strftime("%I:%M %p") %></li> 
+              <li class="w_out"><%= s.timesheet.time_out.strftime("%I:%M %p") %></li>
+              <li class="w_break"><%= s.timesheet.break_minutes %></li>               
+              <li class="w_hrs"><%= s.timesheet.total_hrs  %></li>              
+          </ul> 
+        <table>  
           <tr>
           <td><b>Time Report Submitted:  </b>
             <%= s.timesheet.created_at.in_time_zone.strftime('%a, %b %-d, %I:%M %p') %> 
           <td><b><%= "Mileage: " if s.timesheet.miles.present? %></b><%= s.timesheet.miles %></td>
           <td><b><%= "Drive Time:" if s.timesheet.drive_time.present? %></b><%= s.timesheet.drive_time %></td>
           <td><b><%= "Expenses: " if s.timesheet.expenses.present? %></b><%= number_to_currency s.timesheet.expenses %></td>
-        </tr>
-        <tr>
-          <td><b><%= "Comments: " if s.timesheet.comments.present? %></b><%= s.timesheet.comments %></p><td>
-        </tr>     
+          </tr>
+          <tr>
+            <td><b><%= "Comments: " if s.timesheet.comments.present? %></b><%= s.timesheet.comments %></p></td>
+        </tr> 
+        </table>
+      </div>      
         <% end %>
-      </table>
+      
     </div>
   </div>
 </div> 

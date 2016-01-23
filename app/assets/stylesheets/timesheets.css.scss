@@ -29,7 +29,7 @@ div.headings ul  {
 	float: left;
 	font-size: 1.1em;
 	font-weight: bold;
-}	
+}
 div.job_data ul {
 	display: block;
 	list-style-type: none;
@@ -43,15 +43,17 @@ div.job_data ul {
 
 		.s_name  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
-		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}		
+		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
 		.s_addy  { width:  13%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_city  { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_state { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_zip   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;  }
+
+		.agt {width: 10%; text-align: left;	list-style-type: none;	display: inline-block;}
 
 		.w_date {	width: 6%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
@@ -65,7 +67,7 @@ div.job_data ul {
 
 		.w_contact { width:  6%;	text-align: left;	list-style-type: none;	display: inline-block;  }
 
-			
+
 
 div.agent_links {
 	border-bottom: 1px solid #909692;
@@ -77,7 +79,7 @@ div.admin_links ul {
 	text_decoration: none;
 	width: 100%;
 	float: left;
-	border-bottom: 1px solid #909692;	
+	border-bottom: 1px solid #909692;
 }
 
 
@@ -94,4 +96,3 @@ div.admin_links ul {
 	list-style-type: none;
 	display: inline-block;
 }
-

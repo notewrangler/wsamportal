@@ -6,13 +6,14 @@
  <%= form_tag shift_selections_job_jhooks_path, method: :put do %>
 
   <%= submit_tag "Submit Changes", class: "btn btn-success" %>
+  <%= check_box_tag 'select_all', id: 'selectall' %>
 
       <div id="shifts">
           <h2 id="month">
             <%= link_to "<", date: @date.prev_month %>
             <%= @date.strftime("%B %Y") %>
             <%= link_to ">", date: @date.next_month %>
-            
+
           </h2>
           <p><strong>Job shifts may overlap into following month (use arrows to view)</strong></p>
           <%= calendar @date do |date| %>
@@ -29,4 +30,17 @@
       </div>
 
 <% end %>
-
+<script>
+$(document).ready(function(){
+  $(function() {
+      $('#selectall').toggle(
+          function() {
+              $('#shifts .checkdate').prop('checked', true);
+          },
+          function() {
+              $('#shifts .checkdate').prop('checked', false);
+          }
+      );
+  });  
+});
+</script>

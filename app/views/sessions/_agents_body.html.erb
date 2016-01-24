@@ -1,5 +1,13 @@
 <div class="container">
 
+	<div class="col-xs-12 col-md-7 col-md-offset-2">
+		<% if Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today) %>
+		<% @today = Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today).pluck(:id) %>
+		 <% end %>
+
+	 <%= link_to 'You Have An Assigned Shift Today--Click Here to Proceed to Sign-In', sign_in_page_shook_path(@today), method: :get,  class: 'btn btn-primary', id: 'you-have-work' if @today.present? %>
+	</div>
+
 		<div class="col-xs-12 col-md-8" id="expo-text">
 			<div id="homepage-text">
 					<h4>This is the <strong>Field Agent</strong> Home Page. <h4>

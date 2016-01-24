@@ -14,10 +14,14 @@
           </ul>
         </nav>
     </div>
-       <h3>Contractor: <%= session_handle %></h3>
+    <h3>Contractor: <%= session_handle %></h3><br>
+    <div class="col-xs-12 col-md-7 col-md-offset-2">
 
-       <% if Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today) %>
-       <% @today = Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today).pluck(:id) %>
-        <% end %>
 
-            <%= link_to 'You Have An Assigned Shift Today--Click Here to Proceed to Sign-In', sign_in_page_shook_path(@today), method: :get,  class: 'btn btn-primary', id: 'you-have-work' if @today.present? %>
+      <% if Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today) %>
+      <% @today = Shook.where("state = ? and agent_id = ? and date  =?", 'assigned', current_agent.id, Date.today).pluck(:id) %>
+       <% end %>
+
+     <%= link_to 'You Have An Assigned Shift Today--Click Here to Proceed to Sign-In', sign_in_page_shook_path(@today), method: :get,  class: 'btn btn-primary', id: 'you-have-work' if @today.present? %>
+
+    </div>

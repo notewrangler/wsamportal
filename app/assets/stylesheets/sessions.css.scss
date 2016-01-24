@@ -4,15 +4,26 @@
 
 
 #you-have-work {
-	padding: 14px 140px;
-    font-size: 22px; //change this to your desired size
+	// padding: 14px 140px;
+	padding-top: 1.8rem;
+    font-size: 1.25rem; //change this to your desired size
+		height: 5rem;
     line-height: normal;
     text-align: center;
-    margin: 0 auto;		
+		vertical-align: middle;
+    margin: 0 auto;
 		width: 100%;
     color: white;
     background-color: DarkCyan;
     -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
             border-radius: 10px;
+ }
+
+ #homepage-text h4 {
+	 font-size: 1.7rem;
+ }
+
+ #expo-text {
+	 font-size: 1.5rem;
  }

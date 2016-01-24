@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(username: "rj001", last_name: "Johnson", first_name: "Ralph", role: "admin", type: "Admin", password: "qq", password_confirmation: "qq")
-User.create(username: "jw001", last_name: "Williams", first_name: "Jay", role: "admin", type: "Admin", password: "qq", password_confirmation: "qq")
-User.create(username: "ch001", last_name: "Hampshire", first_name: "Catherine", role: "admin", type: "Admin", password: "qq", password_confirmation: "qq")
 User.create(username: "ff001", last_name: "Flintstone", first_name: "Fred", password: "qq", password_confirmation: "qq", address: '1236 Rocky Way', city: 'Bedrock', state: 'AZ', zip: '86404', email: 'fred@hanna-barbera.com')
 User.create(username: "as001", last_name: "Seville", first_name: "Alvin", password: "qq", password_confirmation: "qq", address: '32141 Bagdaserian St.', city: 'Studio City', state: 'CA', zip: '91614', email: 'chipndale@seville.com')
 User.create(username: "br001", last_name: "Rubble", first_name: "Betty", password: "qq", password_confirmation: "qq", address: '1234 Rocky Way', city: 'Bedrock', state: 'AZ', zip: '86404', email: 'fred@hanna-barbera.com')

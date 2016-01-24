@@ -2,22 +2,22 @@
 
 <div class="container">
 	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
+	  <div class="col-xs-12 col-md-7 col-md-offset-2">
 	  	<div class="head-cheese">
 			  	<h3><strong>===Agent Sign-In===</strong></h3>
-					<h4><strong>Job# <%= @shook.shift.job.job_num %>: <%= @shook.shift.job.project %></strong></h4>			
+					<h4><strong>Job# <%= @shook.shift.job.job_num %>: <%= @shook.shift.job.project %></strong></h4>
 					<h5><%= @shook.shift.job.store_name %> Store #<%= @shook.shift.job.store_num %> -- <%= @shook.shift.job.address %>, <%= @shook.shift.job.city %>, <%= @shook.shift.job.state %>, <%= @shook.shift.job.zip %></h5>
-					<h5><%= @shook.shift.shift_date.strftime("%a %b %d %Y")  %></h5>			 
+					<h5><%= @shook.shift.shift_date.strftime("%a %b %d %Y")  %></h5>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="container">
 	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
+	  <div class="col-xs-12 col-md-7 col-md-offset-2">
 	  	<div class="sign-in-time">
 	  			<h3><strong>Time Now: </strong><%= Time.zone.now.strftime("%l:%M %p %Z")%></h3>
-			  	<%= hidden_field_tag :id, :value => @shook.id %>			 
+			  	<%= hidden_field_tag :id, :value => @shook.id %>
 	  			<%= submit_tag "Sign In", class: "sign-in-button" %>
 	  	</div>
 		</div>

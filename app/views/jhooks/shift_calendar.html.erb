@@ -6,7 +6,7 @@
  <%= form_tag shift_selections_job_jhooks_path, method: :put do %>
 
   <%= submit_tag "Submit Changes", class: "btn btn-success" %>
-  <%= check_box_tag 'select_all', id: 'selectall' %>
+
 
       <div id="shifts">
           <h2 id="month">
@@ -22,7 +22,7 @@
                  <ul>
                   <% @shifts_by_date[date].each do |shift| %>
                       <li><%= shift.job.project %> <%= shift.job.formatted_time %>
-                      <%= check_box_tag 'ids[]', shift.id, class: "checkdate"%></li>
+                      <%= check_box_tag 'ids[]', shift.id, checked=false, class: "checkdate"%></li>
                   <% end %>
                 </ul>
               <% end %>
@@ -30,17 +30,3 @@
       </div>
 
 <% end %>
-<script>
-$(document).ready(function(){
-  $(function() {
-      $('#selectall').toggle(
-          function() {
-              $('#shifts .checkdate').prop('checked', true);
-          },
-          function() {
-              $('#shifts .checkdate').prop('checked', false);
-          }
-      );
-  });  
-});
-</script>

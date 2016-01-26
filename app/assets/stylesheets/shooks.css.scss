@@ -50,21 +50,21 @@ div.shift_data ul {
 
 		.s_name  { width:  7%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
-		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}		
+		.s_num   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
 		.s_addy  { width:  13%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_city  { width:  9%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_state { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}
-		
+
 		.s_zip   { width:  5%;	text-align: left;	list-style-type: none;	display: inline-block;  }
 
-		.w_date {	width: 7%;	text-align: left;	list-style-type: none;	display: inline-block;	}
+		.w_date {	width: 7%;	text-align: left;	list-style-type: none;	display: inline-block;	margin-right: 1%;}
 
 		.w_time  { width:  6%;	text-align: left;	list-style-type: none;  display: inline-block;	}
 
-		.w_hrs   { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}	
+		.w_hrs   { width:  4%;	text-align: left;	list-style-type: none;	display: inline-block;	}
 
 		.w_rate { width:  6%;	text-align: left;	list-style-type: none;  display: inline-block;}
 
@@ -76,7 +76,7 @@ div.agent_links {
 
 .sign-in-time {
 	text-align: center;
-	margin: 0 auto;	
+	margin: 0 auto;
 	width: 100%;
 }
 
@@ -85,7 +85,7 @@ div.agent_links {
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
-	
+
 }
 
 .sign-in-button  {
@@ -93,7 +93,7 @@ div.agent_links {
     font-size: 22px; //change this to your desired size
     line-height: normal;
     text-align: center;
-    margin: 0 auto;		
+    margin: 0 auto;
 		width: 100%;
     color: white;
     background-color: DarkCyan;
@@ -116,5 +116,3 @@ div.agent_links {
        -moz-border-radius: 10px;
             border-radius: 10px;
 }
-
-
